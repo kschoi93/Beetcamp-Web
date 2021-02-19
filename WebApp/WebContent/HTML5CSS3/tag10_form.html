@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script>
+	function viewer(){
+		var r = document.getElementById("filename").value;
+		alert(r);
+	}
+	
+</script>
+<body>
+<h1>form 태그 : 사용자가 정보를 입력 또는 선택할 수 있는 폼 만들기</h1>
+<!-- 
+	get 방식 전송 : 주소 표시줄에 데이터가 표시
+	post 방식 전송 : 데이터를 숨겨서 전송한다
+
+																				파일 업로드시 필요 -->
+<!-- <form method="post" action="member.jsp?username='홍길동'" name="frm" enctype="mulitpart/form-data"> -->
+<!-- form에 action을 설정해 놓을 경우에는 submit, button, image와 같이 클릭하면 submit이 발생하는 기능이 전부 form에 포함된 actiond으로 이동되고
+	 form 내부의 임의의 기능에 action을 넣어놓으면 해당 기능에서만 submit 된다.
+ -->
+<form>
+<!-- 
+
+	input : 아이디, 비밀번호, checkbox, radio 버튼들 
+	
+	select, option : 목록 list를 형성한다.
+		size : 화면에 기본으로 보여지는 갯수를 설정
+		multiple : 여러개를 선택 가능
+		selected : 기본적으로 선택되어 있는 리스트
+		
+	textarea : 다수의 문자가 적히는 공간
+		rows : 문자 5개의 높이
+		cols : 문자 50개의 넓이
+
+	
+	name : 변수 지정, value : 기본값을 표시해주는 태그, placeholder:안내메시지, size:글자수로 폭설정 , maxlength:최대 입력 문자수
+	
+	
+	
+-->
+	아이디 : <input type="text" name="userid" placeholder="아이디를 입력하세요." size="20" maxlength="5"/><br/>
+	비밀번호 : <input type="password" name="userpwd" placeholder="비밀번호 입력"/><br/>
+	파일첨부 : <input type="file" name="filename"/ id="filename"/>
+		   	<input type="button" onclick="viewer()" value="클릭"/><br/>
+	체크박스 : <input type="checkbox" name="hobby" value="등산"/>등산
+			<input type="checkbox" name="hobby" value="농구" checked/>농구
+			<input type="checkbox" name="hobby" value="배구"/>배구<br/>
+	라디오 :  <input type="radio" name="gender" value="M" checked/>남
+			<input type="radio" name="gender" value="F"/>여<br/>
+	
+	여러줄의 텍스트 : <textarea name="content" rows="5" cols="50">컨텐츠</textarea><br/>
+	목록 태그 : <select name="hobby2" size="3" multiple>
+			  	<option value="독서">독서</option>
+			  	<option value="등산">등산</option>
+			  	<option value="바이크" selected>바이크</option>
+			  	<option value="달리기">달리기</option>
+			  </select> <br/>
+	
+	목록 태그 : <select name="choice">
+				<optgroup label="프론트엔드">
+				  <option value="html">html</option>
+				  <option value="css">css</option>
+				  <option value="javascript">javascript</option>
+				</optgroup>
+				<optgroup label="백엔드">
+				  <option value="jsp">jsp</option>
+				  <option value="servlet">servlet</option>	  
+			    </optgroup>
+			 </select>
+	<br/>
+	버튼 : <input type="button" value="버튼"/>
+		  <input type="submit" value="보내기" formaction="member2.jsp" formmethod="post" formtarget="_blank" formtype="multipart/form=data"/>
+		  <input type="reset" value="다시쓰기"/><!-- 폼 내의 컴포넌트 초기화 -->
+		  <button>버튼</button>
+		  <input type="image" src="../img/test.jpg"/>
+		  
+</form>
+
+</body>
+</html>

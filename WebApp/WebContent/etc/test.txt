@@ -1,0 +1,66 @@
+stack : 밑이막힌 상자. 위에 차곡차곡 쌓인다
+	메소드 수행에 필요한 메모리가 제공되는 공간
+	메소드가 호출되면 호출스택에 메모리 할당, 종료되면 해제
+heap : 
+
+부등호 : 대입 (=), 그리고(&&), 또는(||), A<B(A가 작다), A>B(A가 크다),A>=B(A가 B보다 크거나 같다, A<=B(A가B보다 작거나 같다), 같다(==), 다르다(!=)
+조건문 : If
+반복문 : While / For
+
+
+
+package : 클래스의 묶음
+
+import : 클래스를 사용할 때 패키지의 이름을 생략할 수 있다, 컴파일러에게 클래스가 속한 패키지를 알려둔다
+static import : static 멤버를 사용 할 때 클래스 이름을 생략 할 수 있게 해준다 
+
+Class : 메소드와 변수의 묶음 ex) 설계도
+modifier : 접근 제어자
+	- public      모든 패키지, 클래스 사용가능
+	- (default)   같은 패키지. 클래스 사용가능
+	- protected 같은패키지, 다른 패키지의 상속받는 자손 클래스 사용가능
+	- private     같은 클래스 사용가능
+	* calss :      public과 default만 사용가능
+	* member :  모두 붙일 수 있음
+	* 접근제어자를 사용하는 이유 (캡슐화) 
+	  - 외부로부터 데이터를 보호하기 위해서
+	  - 외부에는 불필요한, 내부적으로만 사용되는
+	  - 부분을 감추기 위해
+	제어자
+	- static final native abstract ....... etc 
+
+
+Object : 변수 iv의 묶음
+instance : 객체를 생성하는 이유는? instance method로 작업해서 값을 반환받아야 하니까
+constructor : 인스턴스가 생성될 때마다 호출되는 인스턴스 초기화 메서드 ex) 생성자 호출 : Time t = new Time(12, 14,16);
+		-리턴값이 없다, 모든 클래스는 반드시 생성자가 있어야 한다. 이름이 클래스와 같아야한다, 생성자가 없을때 컴파일러가 자동으로 기본생성자를 생성해준다
+Variable  instance variable : 개별속성을 가지는 값
+	static variable : 공통속성, 즉 공통된 값을 사용 할 때 상수처럼 고정된 값 다같이 쓰는 사용하는 공용시설의 개념?
+method	instance method : iv로 작업을 해야하는 method
+	- iv, cv 사용가능  / im, sm 호출가능
+	static method(class method) : 객체 생성 없이 호출 가능한 메소드, 작업에 필요한 매개변수를 받아쓰기 때문에 iv를 사용하지 않을때 사용한다
+	- iv 사용 불가능, cv 사용가능 / im : 호출 불가능, sm : 호출가능
+	* static이 instance를 사용 할 수 없는 이유는 객체를 생성을 해야 인스턴스가 사용이 가능하기에 호출시 사용 가능할수도 불가할수도 있기 때문에
+
+
+
+
+Inheritance : 상속 extends ex) class Test extends TestA {}
+composite : 포함 ex) class Test { TestA a = new TestA }
+- 주로 사용하는 것은 포함개념이다. 왜냐? 상속개념은 제한사항이 많이 존재한다
+- 상속이 없을경우 컴파일시 자동으로 extends object를 해준다.
+interface
+
+
+overloading : 한 클래스 안에 같은 이름의 메소드를 매개변수의 갯수 또는 타입을 다르게 하여 여러 개를 정의하는것
+override : 상속받은 조상의 메소드를 자신에 맞게 변경하는 것
+
+super. : 조상멤버 자신멤버 구별에 사용 / static 에 사용불가
+this. : 자기 자신을 가리키는 것, lv와 iv 구별에 사용 / static 에 사용불가
+super() : 조상의 생성자 메서드를 호출 할 때 사용한다
+this() : 클래스의 생성자 메소드를 호출 할 때 사용한다
+
+variable : 기본형(8개), 참조형
+상수
+jvm : java virtual machine
+api : program inpormation
