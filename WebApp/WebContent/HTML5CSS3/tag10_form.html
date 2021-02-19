@@ -40,7 +40,13 @@
 	
 	name : 변수 지정, value : 기본값을 표시해주는 태그, placeholder:안내메시지, size:글자수로 폭설정 , maxlength:최대 입력 문자수
 	
-	
+	date : 연 월 일을 표시 (달력도)
+	datetime-local : 연 월 일 시 분 표시 (달력도)
+	month : 년 월
+	week : 년의 주차수
+	color : rgb 코드표
+	number : 숫자, 범위설정 가능
+	range : JSlider와 같은 기능, ex) 오디오 불륭조정
 	
 -->
 	아이디 : <input type="text" name="userid" placeholder="아이디를 입력하세요." size="20" maxlength="5"/><br/>
@@ -77,8 +83,17 @@
 		  <input type="submit" value="보내기" formaction="member2.jsp" formmethod="post" formtarget="_blank" formtype="multipart/form=data"/>
 		  <input type="reset" value="다시쓰기"/><!-- 폼 내의 컴포넌트 초기화 -->
 		  <button>버튼</button>
-		  <input type="image" src="../img/test.jpg"/>
+		  <input type="image" src="../img/test.jpg" width="300"/>
 		  
+	<hr/>
+	<!-- 날짜 처리 -->
+	date : <input type="date" name="date1"/>년월일<br/>
+	datetime-local : <input type="datetime-local" name="date2"/>년월일 시(12H) 분<br/>
+	month : <input type="month" name="date3"/>년 월<br/>
+	week : <input type="week" name="date4"/>년 단위의 주차수<br/>
+	color : <input type="color" name="color"/>rgb코드 표<br/>
+	number : <input type="number" name="number" min="1" max="10" step="2"/>number<br/>
+	range : <input type="range" name="range" min="1" max="100" value="10"/>range<br/>
 </form>
 
 </body>

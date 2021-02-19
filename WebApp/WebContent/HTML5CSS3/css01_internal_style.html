@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	스타일 표시 방법
+	inline 방식 : html 태그에 style속성으로 표기 
+		<태그 style="color:red"></태그>
+	internal 방식 : head 태그에 style 태그를 이용하여 표기하는 방법
+		<head>
+			<style>
+			</style>
+		</head>
+	external 방식 : 스타일시트를 별도의 외부파일로 생성하여 사용한다.
+		style.css (file) -> 공통사용되는 css
+	
+ -->
+<style>
+	/* 스타일시트 주석문 */
+	/* 선택자 : 태그 선택자, 아이디 선택자: 아이디는 1개만 존재해야 한다., 클래스 선택자 */
+	
+	/* 선택자{속성:속성값; 속성:속성값; 속성:속성값} */
+	div{
+		color:blue; 
+		background-color:#ddd;
+	}
+	
+	/* 아이디 선택자 */
+	#txt{
+		background-color:yellow;
+	}
+	
+	#d1{
+		/*text-decoration : underline(밑줄), overline(윗줄), line-through(취소선), none(취소하지 않음)*/
+		text-decoration:underline;
+		color:#ff0101;
+	}	
+	/* 클래스 선택자 */
+	.c1{
+		font-size:20pt;
+		
+	}
+	
+	
+	
+</style>
+</head>
+<body>
+<h1 style="color:red">스타일 시트</h1>
+<ul>
+	<li class="c1">inline 방식 : html 태그에 style속성으로 표기 </li>
+	<li id="txt">internal 방식 : head 태그에 style 태그를 이용하여 표기하는 방법</li>
+	<li>external 방식 : 스타일시트를 별도의 외부파일로 생성하여 사용한다.</li>
+</ul>
+<div class="c1">
+지난 한 주 전 세계에서 발생한 코로나19 신규 확진자와 사망자 수가 모두 10%대 감소율을 보였습니다.
+AFP에 따르면 WHO는 지난 14일까지 한 주간 집계된 전 세계 코로나19 신규 확진자 수가 전주와 비교해 16% 감소한 270만 명으로 확인됐다고 밝혔습니다.
+같은 기간 코로나19 관련 사망자는 전주 대비 10% 줄어든 8만천 명으로 보고됐습니다.
+신규 발생 감소율은 <span id="d1">아프리카 20%, 서태평양과 한국·중국·일본 등 동아시아 20%, 유럽 18%, 미주 16%, 동남아시아 13%</span> 순으로 높았습니다.
+다만 지중해 동부지역 중동 등지
+</div>
+
+<ul>
+	<li>inline 방식 : html 태그에 style속성으로 표기 </li>
+	<li>internal 방식 : head 태그에 style 태그를 이용하여 표기하는 방법</li>
+	<li>external 방식 : 스타일시트를 별도의 외부파일로 생성하여 사용한다.</li>
+</ul>
+<div>
+지난 한 주 전 세계에서 발생한 <span>코로나19 신규 확진자와 사망자 수가 모두 10%대 감소율을 보였습니다.</span>
+AFP에 따르면 WHO는 지난 14일까지 한 주간 집계된 전 세계 코로나19 신규 확진자 수가 전주와 비교해 16% 감소한 270만 명으로 확인됐다고 밝혔습니다.
+같은 기간 코로나19 관련 사망자는 전주 대비 10% 줄어든 8만천 명으로 보고됐습니다.
+신규 발생 감소율은 아프리카 20%, 서태평양과 한국·중국·일본 등 동아시아 20%, 유럽 18%, 미주 16%, 동남아시아 13% 순으로 높았습니다.
+다만 지중해 동부지역 중동 등지
+</div>
+</body>
+</html>
