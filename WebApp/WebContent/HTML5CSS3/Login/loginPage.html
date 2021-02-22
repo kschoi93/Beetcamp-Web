@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	html,body{
+		background-color:#e0e0e0;
+	    height:100%; overflow:hidden;
+	    margin:0 auto;
+	}
+	#firstLine, #secondLine, #threeLine{
+		width:700px;
+		margin:0 auto 0;
+		background-color:white;
+	}
+	#firstLine{
+		height: 100px;
+		line-height: 100px;
+		text-align:center;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	#secondLine{height:300px;}
+	#secondWrap{
+		height:300px;
+		padding:50px 30px;
+		}
+	#threeLine{height:100%; border-top: 1px solid #e0e0e0;}
+	a:link {
+		text-decoration: none; color:black;
+	}
+</style>
+</head>
+<body>
+<div id="firstLine">
+	<img src="logo_daum.png"/>
+</div>
+<div id="secondLine">
+	<div id=secondWrap>
+		<div style="float:left">
+			<input type="text" name="userid" placeholder="아이디 입력" 
+			style="width:240px; height:35px; font-size:16px; border: solid 1px #e0e0e0"/><br/>
+			<input type="password" name="password" placeholder="비밀번호 입력" 
+			style="width:240px; height:35px; font-size:16px; border: solid 1px #e0e0e0;
+			margin-top:5px;"/><br/>
+			<input type="button" name="loginBtn" value="로그인" 
+			style="color: white; background-color: #819FF7; font-size:16px; border : none;
+			width:245px; height:40px; margin-top:10px"/><br/>
+			<input type="checkbox" value="로그인 상태 유지"/>로그인 상태 유지
+			<span>&nbsp;&nbsp;&nbsp;IP보안 <span style="color:blue">ON</span></span><br/>
+			<div 
+			style="font-size:10px;margin-top:20px; padding:10px 50px;" >
+			<a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a></div>
+		</div>
+		<div id="ad" style="float:right">
+			<a href="#"><img src="../../img/test.jpg" width="200px" height="200px"/></a>
+		</div>
+	</div>
+</div>
+<div id="threeLine">
+	<div style="margin-top:10px; text-align:center;"> © Kakao Corp | 고객센터</div>
+</div>
+
+</body>
+</html>

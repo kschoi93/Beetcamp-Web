@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		width:200px; 
+		height:200px;
+		border:1px solid gray;
+	}
+	#d1{background:green; 
+	position:relative;
+	z-index: 100;}
+	/*
+		position : 좌표를 설정할수 있다 (left,top,right,bottom).
+		속성값 : static(생략, 좌표설정 안됨), 
+				relative(좌표설정 가능:공간을 차지하고 있다) 
+				absolute(좌표설정 가능:공간을 뺀다)
+		z-index : 양수를 설정하면 값이 높을수록 위에 표시된다.
+	*/
+	
+	#d2{
+		position:absolute;
+		left:100px; top:100px;
+		background-color: lightblue; 
+		z-index:5;
+	}
+	#d4{
+		position:absolute;
+		left:100px; top:100px;
+		background:pink; width:80px; height:80px;
+	}
+	
+	#d3{
+		position:relative;
+		top:50px;
+		background-color:#ddd;
+		z-index:10;
+	}
+	#d5{
+		width:100px; height:100px;
+		background-color:blue;
+		position:absolute;
+		left:30px;top:30px;
+	}
+	#d6{
+		position:absolute;
+		width:100px;height:200px;
+		border:1px solid gray;
+		background-color:yellow;
+		right:10px;
+	}
+</style>
+</head>
+<body>
+	<div id="d1">aaaaa</div>
+	<div id="d2">
+		bbbbb
+		<div id="d4">444444</div>
+	</div>
+	<div id="d3">ccccc
+		<div id="d5">55555</div>
+	</div>
+	<div id="d6">
+	
+	</div>
+</body>
+</html>

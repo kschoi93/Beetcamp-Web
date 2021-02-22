@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+<style>	
+	body{}
+	#menu{overflow:auto;
+	}
+	
+	/*
+		여러개의 초기값을 설정 방법
+		쉼표를 사용하여 표시
+	*/
+	body,ul,li{
+		margin:0px;
+		padding:0px;
+		list-style-position:inside;/*outside = ul쪽에 표시된다, inside = 안쪽으로 들여온다*/
+		list-style-type: none;/*li의 다양한 모양을 나타낸다*/
+	}
+	/*후손 선택자*/
+	#menu li{
+		float:left; /* 박스를 오른쪽 또는 왼쪽 순서대로 배치*/
+		text-align:center;/*컨텐츠(텍스트, 이미지)를 left, center, right 정렬*/
+		width:25%;
+		height:100px;
+		font-size: 2em;
+		line-height:100px;/*텍스트 1줄 높이 설정*/
+		border-bottom:2px solid gray;
+		background-color:lightblue;
+	}
+	#menu2 li{
+		background-color: yellow;
+		height:50px;
+		text-align: center;
+		width:150px;
+		line-height:50px;
+		border-bottom:1px gray solid;
+	}
+</style>
+</head>
+<body>
+<ul id="menu">
+	<li><a href="#">메일</a></li>
+	<li><a href="#">뉴스</a></li>
+	<li><a href="#">판</a></li>
+	<li><a href="#">TV</a></li>
+</ul>
+<ul id="menu2">
+	<li><a href="#">메일</a></li>
+	<li><a href="#">뉴스</a></li>
+	<li><a href="#">판</a></li>
+	<li><a href="#">TV</a></li>
+</ul>
+</body>
+</html>
