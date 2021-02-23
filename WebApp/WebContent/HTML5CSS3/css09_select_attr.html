@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{width:200px;height:200px;}
+	/* 속성 선택자
+		$= -> 특정문자로 끝나는 태그를 선택한다.
+		^= -> 특정문자로 시작하는 태그를 선택한다.
+		*= -> 특정문자가 포함된 태그를 선택한다.
+	*/
+	img[src$=jpg]{
+		border:2px solid red;
+	}
+	img[title^=sn]{
+		border:2px dotted green;
+	}
+	img[src*=s]{
+		border:2px double blue;
+		border-radius:50px;
+	}
+	input[type=text]{
+		background:yellow; font-size:1.5em;
+	}
+	input[value=goguma]{
+		background:lightblue;
+	}
+</style>
+</head>
+<body>
+<img src="../img/wine1.jpg"/>
+<img src="../img/test.jpg" width="300px"/>
+<img src="../img/wine_title.gif" title="snow"/>
+
+<hr/>
+<form method="post" action="aaaa.jsp">
+	<label>아이디</label><input type="text" name="userid" value="goguma"/><br/>
+	<label>비밀번호</label><input type="password" name="userpwd" value="goguma"/><br/>
+	<input type="submit" value="login"/>
+</form>
+</body>
+</html>

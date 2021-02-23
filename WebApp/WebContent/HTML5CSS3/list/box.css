@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+body{
+	width:700px;
+	height:700px;
+	margin: 50px auto;
+}
+
+/* li 전부 */
+li{
+	height:140px;
+	width:140px;
+	padding: 7px 7px;
+	margin:0px 10px 0px 10px;
+	background:rgb(250,250,250);
+	border: 1px solid rgb(200,200,200);
+	list-style-type: none;
+	float:left;
+}
+/*ul bottom*/
+ul{
+	margin-bottom:0px;
+}
+/*bottom li 위치*/
+#bottom>ul>li{
+	height:150px;
+	width:155px;
+	padding: 0px 0px;
+	margin:0px 10px 0px 10px;
+	background:white;
+	border: 1px solid rgb(200,200,200);
+	list-style-type: none;
+	float:left;
+}
+/*bottom li img 위치*/
+li>img{
+	width:155px; height:100px;
+}
+/*q 기본세팅*/
+.qSetting{
+	margin-top:5px;
+	font-size:13px;
+	font-weight: bold;
+	color:rgb(126,212,226);
+	display:inline-block;
+	height:30px;
+	width:15px;
+	float:left;
+}
+/*a 기본세팅*/
+.aSetting{
+	margin-top:5px;
+	font-size:13px;
+	font-weight: bold;
+	display:inline-block;
+	height:60px;
+	width:15px;
+	float:left;
+}
+/*Q 위치 텍스트 기본설정*/
+.textTitle{
+	font-size:11px;
+	font-weight: bold;
+}
+/*A 위치 텍스트 기본설정*/
+.textBody{
+	font-size:10px;
+	font-weight: bold;
+	color:rgb(192,192,192);
+}
+/*대형 img 설정*/
+img[src*=tab2_1]{
+	position: absolute;
+	margin-left:10px;
+	border:1px solid rgb(200,200,200);
+}
+/*각 문단 조절...*/
+#firstRow,#secondRow,#bottom{
+	float:left;
+}
+.bottomTitle{
+	padding:7px 7px 0px 7px;
+	font-size:10px;
+	font-weight:bold;
+}
+.bottomBody{
+	padding:5px 7px 0px 7px;
+	font-size:10px;
+	color:rgb(192,192,192);
+}

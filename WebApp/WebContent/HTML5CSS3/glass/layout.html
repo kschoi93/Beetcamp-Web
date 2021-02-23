@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		margin: 0px;
+		overflow:hidden;
+	}
+	img[src*=glass1]{
+		position: absolute;
+		left: 300px; top:60px; 
+		z-index:400;
+	}
+	img[src*=glass2]{
+		position: absolute;
+		left: 450px; top:100px; 
+		z-index:420;
+	}
+	img[src*=glass3]{
+		position: absolute;
+		left: 360px; top:180px; 
+		z-index:450;
+	}
+	
+	img[src*=title]{
+		position: absolute;
+		left: 0px; right: 0px;
+		z-index:200;
+	}
+	/*빨간색*/
+	div>div>ul{
+		margin:0px;
+		width:100%;
+		height:40px;
+		background:rgb(239,137,154);
+		position: absolute;
+		z-index:99;
+	}
+	/*파란색*/
+	div>ul{
+		margin:0px;
+		width:100%;
+		height:62px;
+		background:rgb(90,177,202);
+		position: absolute;
+	}
+</style>
+</head>
+<body>
+<!-- 아이디와 클래스를 사용하지 않기 -->
+<div>
+	<div>
+		<ul></ul>
+	</div>
+	<ul></ul>
+	<img src="img/title_layer.gif"/>
+</div>
+<div>
+
+
+<img src="img/glass1.gif" />
+<img src="img/glass2.gif" />
+<img src="img/glass3.gif" />
+
+</div>
+</body>
+</html>

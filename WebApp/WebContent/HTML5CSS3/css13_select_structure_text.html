@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구조 선택자, 문자 스타일</title>
+<style>
+	/*구조 선택자
+	nth-child(2n) : 짝수,홀수 번째에 적용
+				홀수번째, 짝수번째
+				2n+1	2n
+		
+	*/
+	#std>ul>li:nth-child(2n){
+		color:red;
+	}
+	
+	#std>ul>li:nth-child(2n+1){
+		background:#ddd;
+	}
+	/*
+		:first-child -> 첫번째 객체
+		:last-child -> 마지막 객체
+	*/
+	#std>ul>li:first-child{
+		font-size:1.5em;
+	}
+	#std>ul>li:last-child{
+		color:blue;
+		font-size:1.2em;
+	}
+	#std>ul>li:nth-child(3){
+		background-color: green;
+	}
+	
+	
+</style>
+</head>
+<body>
+<div id="std">
+	<ul>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+	</ul>
+</div>
+<style>
+	/*구조선택자*/
+	/*
+		:first-of-type
+		:last-of-type
+		:nth-of-type(2n) 짝수번째
+		:nth_of_type(2n+1) 홀수번째
+	*/
+	#std2 li:first-of-type{
+		color:green;
+	}
+	#std2 li:last-of-type{
+		background-color:lightblue;
+	}
+	#std2 li:nth-of-type(2n){
+		color:red;
+	}
+	#std2 li:nth-of-type(2n+1){
+		font-weight:700;
+	}
+	
+</style>
+<div id="std2">
+	<ul>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+		<li>구조 선택자 ~~~~~~~~~~~~~</li>
+	</ul>
+</div>
+
+</body>
+</html>
