@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>@media 쿼리 : 반응형 스타일 지정하기</title>
+<!-- 장치에 맞게 픽셀정보 조정                                      0~10-->
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+	ul,li{margin:0px;padding:0px;list-style-type:none;}
+	li{border:1px solid #ddd;margin:3px;padding:3px;width:40%;float:left}
+	/*반응형 스타일 지정*/
+	/*320px ~ 600px*/
+	/* all, screen, print, tv, projection ....*/
+	@media all and (min-width:320px) and (max-width:600px) {
+		li{
+			background-color:red;
+			color:white;
+		}
+	}
+	
+	@media all and (min-width:601px) and (max-width:800px){
+		li{
+			background-color:lightblue;
+			color:red;
+		}
+	}
+	@media all and (min-width:801px) {
+		li{
+			background-color:black;
+			color:white;
+		}
+	}
+</style>
+</head>
+<body>
+<ul>
+	<li>미국 항공우주국 NASA가 화성 탐사로버 퍼서비어런스가 녹음한 바람 소리를 공개했습니다.
+NASA는 현지 시간 22일 홈페이지에 화성의 바람 소리를 담은 18초 분량의 오디오 파일 2개를 올렸습니다.
+하나는 탐사로버 기계음이 포함된 오디오이고 다른 하나는 로버의 작동음을 제거한 바람 소리입니다.
+화성의 바람 소리가 지구에 전송된 건 이번이 처음입니</li>
+	<li>현지 시간 22일 홈페이지에 화성의 바람 소리를 담은 18초 분량의 오디오 파일 2개를 올렸습니다.하나는 탐</li>
+	<li>버 기계음이 포함된 오디오이고 다른 하나는 로버의 작동음을 제거한 바람 소리입니다.화성의 바람 소리</li>
+	<li>가 지구에 전송된 건 이번이 처</li>
+	<li>탐사로버 퍼서비어런스가 녹음한 바람 소리를 공개했습니다.NASA는 현지 시간 22일 홈페이지에 화성</li>
+	<li>NASA는 현지 시간 22일 홈페이지에 화성의 바람 소리를 담은 18초 분량의 오디오 파일 2개를 올렸습니다.</li>
+	<li>디오이고 다른 하나는 로버의 작동음을 제거한 바람 소리입니다.화성의 바람 소리가 지구에 전송된 </li>
+	<li>지에 화성의 바람 소리를 담은 18초 분량의 오디오 파일 2개를 올렸습니다.하나는 탐사로버 기계음이 포함된</li>
+</ul>
+</body>
+</html>

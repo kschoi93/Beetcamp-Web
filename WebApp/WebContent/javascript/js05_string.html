@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function stringTest(){
+		var txt ="자바스크립트에서 문자열 사용하는 방법....";
+		document.write("txt",txt);
+		document.write("<br/>length->", txt.length);
+		document.write("<br/>indexof->", txt.indexOf('문'));
+		document.write("<br/>search->",txt.search("문자열"));
+		
+		// 문자열 일부 처리 : slice, substring, substr
+		document.write("<br/>slice->",txt.slice(2,7));//2부터 7 앞까지
+		document.write("<br/>substring->",txt.substring(2,7));
+		document.write("<br/>substr->",txt.substr(2,5));//2부터 index 갯수
+		
+		document.write("<br/>replace->",txt.replace("스크립트","script") );
+		
+		var txt2 = "Hello, JavaScript...";
+		document.write("<br/>toUpperCase->",txt2.toUpperCase());
+		document.write("<br/>toLowerCase->",txt2.toLowerCase());
+		
+		document.write("<br/>concat->",txt.concat(txt2));
+		document.write("<br/>charAt->",txt2.charAt(2));
+		document.write("<br/>charCodeAt->",txt2.charCodeAt(0));
+		
+		var arr = txt2.split('a'); // arr[0], arr[1].......
+		document.write("<br/>split->",arr[0],arr[1], arr[2]);
+		
+		for(var i=0;i<arr.length ; i++){
+			document.write('<br/>arr['+i+'j=',arr[i])
+		}
+	}
+	stringTest();
+</script>
+</head>
+<body>
+<hr/>
+<img src="../img/test.jpg" width="300px"/>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var dateTime = new Date();//현재 날짜, 시간
+	var dateTime2 = new Date("2021.05.10");// "2021/06/07"  "2021-08-09"
+	var dateTime3 = new Date(5653456253213);//밀리초 : 1970년 1월 1일 0시 0분초 기준
+	
+	document.write("dateTime="+dateTime);
+	document.write("<br/>dateTime2="+dateTime2);
+	document.write("<br/>dateTiem3="+dateTime3);
+	
+	/*
+		년 : getFullYear()             월: getMonth() -> 1월 0, 2월 1,......          일: getDate()
+		시 : getHours()				  분: getMinutes()								초: getSeconds()
+		요일 : getDay() 일요일:0, 월요일:1,........ 토요일:6
+	*/
+	var timeTxt = dateTime.getFullYear()+"년 ";
+	timeTxt += (dateTime.getMonth()+1)+"월 ";
+	timeTxt += dateTime.getDate()+"일 ";
+	timeTxt += dateTime.getHours()+": "+dateTime.getMinutes()+": "+dateTime.getSeconds();
+	
+	document.write("<br/>", timeTxt);
+	document.write("<br/>요일->"+ dateTime.getDay());
+	
+	//마지막날
+	var date = new Date(dateTime.getFullYear(), dateTime.getMonth()+1,0);
+	document.write("<br/>마지막날 -->" + date.getDate());
+</script>
+</head>
+<body>
+
+</body>
+</html>

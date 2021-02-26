@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function hap(a,b){
+		var r = a+b;
+		document.getElementById("result").innerHTML = a+"+"+b+"="+r;
+	}
+	function output(name,tel){
+		document.getElementById("result").innerHTML = name+","+tel;
+	}
+	function imageChange(i,imgName){
+		// i-> img object
+		// imgName -> String
+		
+		i.src= "../img/"+imgName;
+	}
+	function plus(){
+		var num1 = document.getElementById("n1").value;
+		var num2 = document.getElementById("n2").value;
+		console.log(isNaN(num1));
+		
+		// is Not a Number() "10", "-10", "+10", "12.6", ".3", "", "test"
+		//					  f		f		f		f	   f    f     t
+		// 문자 : true, 숫자 false, 빈문자 false
+		
+		if(	!isNaN(num1) && !isNaN(num2) && num1 !="" && num2 !=""){
+			var n1 = parseInt(num1);
+			var n2 = parseInt(num2);
+			
+			var r = n1+n2;
+			
+			document.getElementById("result").innerHTML = num1+"+"+num2+"="+r;
+		} else {
+			document.getElementById("result").innerHTML = "잘못입력된 값입니다.";
+		}
+	}
+</script>
+</head>
+<body>
+<input type="text" id="n1"/>
+<input type="text" id="n2"/>
+<hr/>
+<input type="button" value="더하기" onclick="plus()"/>
+<input type="button" value="더하기" onclick="hap(40,45)"/>
+<input type="button" value="문자열출력" onclick="output('홍길동', '010-1234-1234')"/>
+<input type="button" value="곱하기"/>
+<div id="result" style="background:pink"></div>
+<img src="../img/test.jpg" width="300px" onclick="imageChange(this,'wine2.jpg')"/>
+</body>
+</html>

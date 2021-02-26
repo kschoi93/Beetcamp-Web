@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	ul, li {
+		margin:0px; 
+		padding:0px; 
+		list-style-type:none;
+	}
+	#tabMenu{border:1px solid #ddd;width:610px;overflow:hidden;
+		position:relative;height:600px;
+	}
+	/*메뉴*/
+	#menu{
+		overflow:auto;
+	}
+	#menu>li{
+		float:left; font-size:1.2em; line-height:1.4em;padding:0 5px;
+	}
+	/*radio버튼 숨기기*/
+	#tabMenu>input[type=radio]{display:none;}
+	/*컨텐츠 위치 설정*/
+	#tabMenu>div{
+		position:absolute;left:0px; top:50px;display: none;
+	}
+	/*메뉴 선택시 해당 컨텐츠 보이기 : 동위 선택자, 구조 선택자*/
+	#m1:checked ~ div:nth-of-type(1){display:block;}
+	#m2:checked ~ div:nth-of-type(2){display:block;}
+	#m3:checked ~ div:nth-of-type(3){display:block;}
+	#m4:checked ~ div:nth-of-type(4){display:block;}
+	#m5:checked ~ div:nth-of-type(5){display:block;}
+	#m6:checked ~ div:nth-of-type(6){display:block;}
+	#m7:checked ~ div:nth-of-type(7){display:block;}
+	#m8:checked ~ div:nth-of-type(8){display:block;}
+	#m9:checked ~ div:nth-of-type(9){display:block;}
+	#m10:checked ~ div:nth-of-type(10){display:block;}
+	#m11:checked ~ div:nth-of-type(11){display:block;}
+
+	#m1:checked ~ ul>li:nth-of-type(1){color:red;}
+
+</style>
+</head>
+<body>
+<h1>탭메뉴</h1>
+<!-- 라벨 -->
+<div id="tabMenu">
+
+	<input type="radio" name="menu" id="m1" checked/>
+	<input type="radio" name="menu" id="m2"/>
+	<input type="radio" name="menu" id="m3"/>
+	<input type="radio" name="menu" id="m4"/>
+	<input type="radio" name="menu" id="m5"/>
+	<input type="radio" name="menu" id="m6"/>
+	<input type="radio" name="menu" id="m7"/>
+	<input type="radio" name="menu" id="m8"/>
+	<input type="radio" name="menu" id="m9"/>
+	<input type="radio" name="menu" id="m10"/>
+	<input type="radio" name="menu" id="m11"/>
+	<ul id="menu">
+		<li><label for="m1">블로그</label></li>
+		<li><label for="m2">카페</label></li>
+		<li><label for="m3">팁</label></li>
+		<li><label for="m4">지식공간</label></li>
+		<li><label for="m5">영화</label></li>
+		<li><label for="m6">뮤직</label></li>
+		<li><label for="m7">웹툰</label></li>
+		<li><label for="m8">스토리볼</label></li>
+		<li><label for="m9">브런치</label></li>
+		<li><label for="m10">게임</label></li>
+		<li><label for="m11">책</label></li>
+	</ul> 
+	
+	<div><img src="tab1.png"/></div>
+	<div><img src="tab2.png"/></div>
+	<div><img src="tab3.png"/></div>
+	<div><img src="tab4.png"/></div>
+	<div><img src="tab5.png"/></div>
+	<div><img src="tab6.png"/></div>
+	<div><img src="tab7.png"/></div>
+	<div><img src="tab8.png"/></div>
+	<div><img src="tab9.png"/></div>
+	<div><img src="tab10.png"/></div>
+	<div><img src="tab11.png"/></div>
+</div>
+</body>
+</html>

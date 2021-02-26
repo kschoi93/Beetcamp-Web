@@ -35,7 +35,17 @@
 	
 </style>
 </head>
-<body>
+<!-- 
+	html속성을 이용한 마우스 드래그 또는 복사 제한
+	
+	oncontextmenu : 마우스 오른쪽 버튼 메뉴 제어
+	
+	onselectstart : 마우스 드래그 시작 불가능
+	
+	ondragstart : 드래그 시작 불가능
+	ondragend : 드래그 종료 불가능
+ -->
+<body oncontextmenu="return false" onselectstart="return false">
 <div id="std">
 	<ul>
 		<li>구조 선택자 ~~~~~~~~~~~~~</li>
@@ -94,6 +104,57 @@
 		<li>구조 선택자 ~~~~~~~~~~~~~</li>
 	</ul>
 </div>
-
+<style>
+	/*
+		문자 스타일
+		::first-letter -> 문자의 첫번째 글자에 대한 스타일
+		::first-line -> 문자열의 첫번째 행에 대한 스타일
+		::selection -> 문자열을 선택했을때 선택영역에 대한 스타일
+	*/
+	#txt::first-letter{
+		color:red;
+		font-size:30px;
+		font-weight:bold;
+	}
+	#txt::first-line{
+		text-decoration:underline;
+		color:blue;
+	}
+	#txt::selection{
+		background-color:#000; color:yellow;
+	}
+</style>
+<div id="txt">
+세계보건기구의 코로나19 기원 조사 전문가팀이 중국 우한의 첫 확진자에 대한 추적 조사를 권고할 것이라고 미국 CNN 방송이 보도했습니다.
+CNN은 전문가팀이 중국에 의해 코로나19 첫 확진자로 보고된 2019년 12월 8일 발생 환자에 대해 광범위한 추가 조사가 필요하다고 지적했다면서 이렇게 전했습니다.
+CNN은 또 이른바 우한의 코로나19 '1번 환자'로 알려진 이 40대 남성이 사무직에 종사하며 외국 여행을 한 적이 없지만, 부모가 야생 동물을 파는 우한의 다른 시장을 방문한 적이 있다고 설명했습니다.
+CNN은 아울러 전문가팀이 초기에 집단 발병한 화난 수산 시장의 공급망에 대해서도 즉각적인 조사를 촉구할 것으로 알려졌다고 덧붙였습니다.
+</div>
+<style>
+	/*부정(not) 선택자
+		:not() -> 선택자를 제외한 나머지에 스타일 지정한다.
+	*/
+	#lnk>a:not([target=_blank]){
+		background-color:orange;
+	}
+	/*링크 주소를 표시하는 스타일
+		::after -> 텍스트를 표시 후 주소를 표시한다.
+		::before -> 주소를 표시하고 텍스트를 표시한다.
+	
+	#lnk>a::after{
+		content:'->' attr(href);
+	}
+	*/
+	#lnk>a::before{
+		content:attr(href) '<-';
+	}
+</style>
+<div id="lnk">
+	<a href="https://www.daum.net">다음</a><br/>
+	<a href="https://www.nate.com" target="_blank">네이트</a><br/>
+	<a href="../index.html">홈으로</a><br/>
+	<a href="https://oracle.com">오라클</a><br/>
+	
+</div>
 </body>
 </html>

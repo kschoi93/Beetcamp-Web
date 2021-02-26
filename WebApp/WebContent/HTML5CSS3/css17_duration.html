@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*overflow : hidden, scroll, auto*/
+	div{width:500px;height:500px;overflow:hidden; border: 1px solid cyan;}
+	div>img{width:100%;}
+	
+	/*체크가 눌렸을 때, 본인이 아닌 다른 것이 바뀌도록 하는 방법*/
+	input:checked+div{
+		width:0px;height:0px;
+		/*display:none;
+		visibilly:hidden;*/
+		
+		transition-duration:20s; /*지정한 시간을 기준으로 변환한다*/
+		opacity:0;/*투명하게*/
+	}
+</style>
+</head>
+<body>
+<input type="checkbox"/>클릭
+<div>
+	<img src="../img/wine1.jpg"/>
+</div>
+<div>
+asdfsadf
+</div>
+</body>
+</html>

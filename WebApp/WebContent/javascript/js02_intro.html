@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 id="txt">스타일 시트를 자바 스크립트에서 적용하기</h1>
+<img src="../img/test.jpg" width="300px" id="flower"/>
+<div id="view"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// javascript는 변수 선언시 별도의 데이터형을 지정하지 않는다
+	// 처음으로 대입되는 데이터에 따라 데이터형이 자동으로 설정된다.
+	var imgTag="";
+	for(i=1; i<=5; i++){
+		imgTag += "<img src='../img/"+i+".jpg'/ width='300px' height='300px'>";
+	}
+	
+	//								변수
+	document.getElementById("view").innerHTML = imgTag;
+	
+	// 자바스크립트에서 스타일 시트 적용하기
+	document.getElementById("txt").style.color= "#5ae";
+	
+	var obj = document.getElementById("txt");
+	// color background-color font-size
+	obj.style.backgroundColor = "pink";
+	obj.style.fontSize = "72px";
+	obj.style.border = "solid 3px green";
+	
+	// 자바스크립트에서 html 속성 다루기
+	var imgObj = document.getElementById("flower");
+	imgObj.src = '../img/wine2.jpg';
+	imgObj.title = '풍선 도움말.........';
+	
+	var imgFilename = imgObj.src;
+	document.write("<br/>"+imgFilename);
+	
+	console.log(imgFilename);
+	alert(imgFilename); //대화상자 띄우기
+</script>

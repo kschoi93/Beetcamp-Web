@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* link type */
+	a:link{text-decoration: none; color:white;}
+	a:active {text-decoration: none; color:white;}
+	a:hover {text-decoration: none; color:white;}
+	a:visited {text-decoration: none; color:white;}
+	#gallery a{color:black;}
+	/* body */
+	body{margin:0px; background:rgb(146,204,101);}
+	#main{
+		width:1040px;
+		height:790px;
+		margin:10px auto; 
+		background:white;	
+		position:relative;
+	}
+	
+	header, section,bottom{position: relative;}
+	#topStrike{
+		position:absolute;
+		left:165px;
+		top:260px; 
+		height:70px;
+		width:835px;
+		text-align:70px;
+		background:rgb(99,187,39); 
+		}
+		#top>img{
+			vertical-align:bottom;
+		}
+	#topStrike>ul{width:837px;}
+	#topStrike li{
+		width:20%;
+		line-height:72px; 
+		text-align:center; 
+		float:left;
+		font-size:1.3em;
+		font-family: arial;
+		font-weight: bold;
+		}
+	
+	section{
+		height:300px;
+		
+	}
+	#center{margin-left:165px}
+	#center>input {
+		position:relative;
+		top:480px; right:500;
+		margin:0px;
+		background:red;
+	}
+	#center>img{vertical-align: bottom;}
+	
+	
+	.new{
+		padding:2px;
+		margin-top:10px;
+		border: 1px gray solid;
+	}
+	ul{margin:0px;padding:0px;}
+	li{list-style:none;}
+	#center>div>div>div>a{color:black;}
+	#gallery li{margin:5px; float:left;}
+	#gallery span{font-size:6px;}
+	#gallery img{vertical-align: bottom; }
+	#gallery div{text-align:center;}
+	#gallery>ul img {width:85px;height:50px;}
+</style>
+</head>
+<body>
+<div id="main">
+	<header>
+		<div id="top"><a href="#"><img src="img/css_gaon_08.jpg"></img></a><img src="img/css_gaon_02.jpg"/><img src="img/css_gaon_03.jpg"/><img src="img/css_gaon_04.jpg"/><img src="img/css_gaon_05.jpg"/><img src="img/css_gaon_06.jpg"/></div>
+		<div id="topStrike">
+			<ul>
+				<a href="#"><li>COMPANY</li></a>
+				<a href="#"><li>STEELHOUSE</li></a>
+				<a href="#"><li>ARCHITECTURE</li></a>
+				<a href="#"><li>INTERIOR</li></a>
+				<a href="#"><li>COMMUNITY</li></a>
+			</ul>
+		</div>
+	</header>
+	<section>
+		<div id="center">
+			<img src="img/css_gaon_15.jpg"/><img src="img/css_gaon_16.jpg"/><img src="img/css_gaon_17.jpg"/><img src="img/css_gaon_18.jpg"/><img src="img/css_gaon_19.jpg"/><br/>
+			<div style="width:837px; height:195px; float:left; ">
+				<div style="float:left" >
+					<a href="#"><img src="img/css_gaon_22.jpg" /></a>
+					<div class="new"><a href="#">01. 자주하시는 질문</a></div>
+					<div class="new"><a href="#">02. 질문과 답변</a></div>
+					<div class="new"><a href="#">03. 채용안내</a></div>
+				</div>
+				<div id="gallery" style="float:right;">
+					<a href="#"><img src="img/css_gaon_24.jpg"/></a>
+					<ul>
+						<a href="#"><li><div><img src="img/g1.png"/><br/><span>멋진 인테리어</span></div></li></a>
+						<a href="#"><li><div><img src="img/g2.png"/><br/><span>이쁜실내</span></div></li></a>
+						<a href="#"><li><div><img src="img/g3.png"/><br/><span>아파트단지</span></div></li></a>
+						<a href="#"><li><div><img src="img/g2.png"/><br/><span>회의실 내부</span></div></li></a><br/>
+						
+						<a href="#"><li><div><img src="img/g1.png"/><br/><span>멋진 인테리어</span></div></li></a>
+						<a href="#"><li><div><img src="img/g2.png"/><br/><span>이쁜실내</span></div></li></a>
+						<a href="#"><li><div><img src="img/g3.png"/><br/><span>아파트단지</span></div></li></a>
+						<a href="#"><li><div><img src="img/g3.png"/><br/><span>회의실 내부</span></div></li></a>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	<bottom>
+		<div style="float:right;margin-right:40px"}><img src="img/css_gaon_31.jpg" style="padding-top:-100px"/></div>
+	</bottom>
+</div>
+</body>
+</html>

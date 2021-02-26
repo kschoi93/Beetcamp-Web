@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img{
+		width:200px;
+		height:200px;
+	}
+	/*객체를 보여주거나 숨김
+		visibility : hidden(숨김), visible(보여줌), 숨기고 난 객체의 자리를 차지하고 있다
+		display : none(숨김), block(보여줌) -> 숨기고 난 객체의 자리를 반환
+	*/
+	img:nth-of-type(2){
+		visibility:hidden;
+	}
+	img:nth-of-type(4){
+		display : none;
+	}
+	img:hover{
+		/*height:0px;*/
+		display:none;
+	}
+</style>
+</head>
+<body>
+<img src="../img/test.jpg"/>
+<img src="../img/wine1.jpg"/>
+<img src="../img/wine2.jpg"/>
+<img src="../img/wine3.jpg"/>
+<img src="../img/wine_title.gif"/>
+</body>
+</html>

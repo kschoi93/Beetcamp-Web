@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function mathTest(){
+		var tag = "<ul>";
+		
+		var num = 123.5678;
+		tag += "<li>PI=" + Math.PI + "</li>";
+		tag += "<li>pow="+ Math.pow(5,3)+"</li>";
+		tag += "<li>round="+Math.round(num)+"</li>";
+		tag += "<li>sqrt="+Math.sqrt(10)+"</li>";
+		tag += "<li>abs="+Math.abs(-100)+"</li>";
+		tag += "<li>ceil=" +Math.ceil(num)+"</li>";
+		tag += "<li>floor=" +Math.floor(num) + "</li>";
+		
+		tag += "<li>max=" + Math.max(58,234,152,3467,786,4563,245);
+		tag += "<li>min=" + Math.min(182,473,78,594,5,4,2,1,69,43);
+		
+		//						정수화(난수*(큰수-작은수+1))+작은수
+		tag += "<li>random="+ Math.random()+"</li>";
+		
+		document.getElementById("view").innerHTML = tag;+"</ul>";
+	}
+</script>
+</head>
+<body onload="mathTest()">
+<div id="view"></div>
+</body>
+</html>
