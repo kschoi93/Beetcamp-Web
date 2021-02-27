@@ -3,43 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>달 력</title>
-<style>
-	body{margin:0px;}
-	#main{width:600px;height:700px; margin:20px auto; border:2px solid gray;}
-	#photo{width:600px;height:300px;border-bottom:1px solid gray;}
-	#photo>img{width:600;height:300px;margin:0px;}
-	#titleStr{text-align:center;font-size:1.5em;font-weight:bold;font-family:굴림체;padding:10px 0px;border-bottom:1px gray solid;}
-	
-	#dayOfTheWeek{width:600px;height:30px;}
-	#dotw{width:14.2%;height:30px;line-height:30px;border:1px solid gray;text-align:center;}
-</style>
-<script>
-	var date = new Date();
-	var strArr = new Array('일','월','화','수','목','금','토');
-	var cal = "";
-	cal += date.getFullYear()+"년 ";
-	cal += (date.getMonth()+1)+"월 ";
-	//cal += date.getDate()+"일 ";
-	
-	document.write(
-			"<div id='main'>"
-				+"<div id='photo'>"
-					+"<img src='img/calimg.jpg' width='600px'/>"
-				+"</div>"
-				+"<div id='titleStr'></div>"
-				+"<div id='dayOfTheWeek'></div>"
-		    +"</div>")
-	
-	document.getElementById("titleStr").innerHTML = cal;
-	document.getElementById("dayOfTheWeek").innerHTML = titleForStr();
-	function titleForStr(){
-		for(var i=0; i<strArr.length; i++){
-			document.write("<div id='dotw'>"+strArr[i]+"</div>");
-		}
-	}
-</script>
+<link rel="stylesheet" href="body.css" type="text/css"/>
 </head>
 <body>
-	
+<script src="script.js"></script>
 </body>
+<link rel="stylesheet" href="bodyInner.css" type="text/css"/>
 </html>
