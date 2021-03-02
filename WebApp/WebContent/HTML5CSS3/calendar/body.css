@@ -6,3 +6,32 @@ body{margin:0px;}
 #photo>img{width:600px;height:400px;margin:0px;}
 #titleStr{overflow:visible;text-align:center;font-size:1.5em;font-weight:bold;font-family:굴림체;padding:10px 0px;border-bottom:1px gray solid;}
 
+#dayOfTheWeek, #viewDate{
+	margin:0px;
+	padding:0px;
+	list-style: none;
+}
+
+#dayOfTheWeek{
+	width:600px;
+	height:30px;
+	padding:20px 0;
+}
+#dotw, #dateNum{
+	width:14.28%;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	float:left;
+	font-size:1.2em;
+	font-weight: bold;
+}
+#dateNum{
+	height:50px;
+}
+#dayOfTheWeek>li:first-child, #viewDate>li:nth-of-type(7n+1) {
+	color:red;
+}
+#dayOfTheWeek>li:last-child,#viewDate>li:nth-of-type(7n+7) {
+	color:blue;
+}

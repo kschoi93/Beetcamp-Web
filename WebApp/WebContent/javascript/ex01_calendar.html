@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>달력 만들기</title>
+<script>
+	function setDate(){
+		var nowDate = new Date();
+		var year = nowDate.getFullYear();
+		var month = nowDate.getMonth()+1;
+		nowDate = new Date(year,month-1, 1); // 1일에 대한 요일 구하기
+		var week = nowDate.getDay();//0-> 일, 1-> 월, ....
+		var lastDay = new Date(year, month, 0).getDate();
+		
+		// 년 월 출력
+		document.getElementById("title").innerHTML = year+" 년" + month+" 월";
+		
+		var weekName = ['일','월','화','수','목','금','토'];
+		var dayData = "";
+		for(var i=0; i<weekName.length; i++){
+			dayData += "<li>"+weekName[i]+"</li>"
+		}
+		// 공백문자
+		for(var i=0; i<week; i++){
+			dayData += "<li>&nbsp;</li>";
+		}
+		// 날짜
+		for(var d=1; d<=lastDay; d++){
+			dayData += "<li>"+d+"</li>";
+		}
+		document.getElementById("day").innerHTML = dayData;
+		
+	}
+</script>
+<style>
+	ul,li{margin:0px; padding:0px; list-style-type: none;}
+	#cal{width:500px;}
+	#cal>img{width:100%;}
+	#title,#day>li{text-align:center;}
+	#day>li{float:left;width:14.2%;}
+</style>
+</head>
+<body onload="setDate()">
+<div id="cal">
+	<img src="../img/test.jpg" width="300px"/>
+	<h1 id="title"></h1>
+	<ul id="day"></ul>
+</div>
+</body>
+</html>

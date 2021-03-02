@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<script>
+		//해상도 구하기
+		var sWidth = screen.width;//screen폭
+		var sHeight = screen.height; // screen 높이
+		document.write("해상도(width)->"+sWidth);
+		document.write("<br/>해상도(height)->"+sHeight);
+		
+		//작업표시줄을 제외한 스크린의 폭과 높이 구하기
+		var availWidth = screen.availWidth;
+		var availHeight = screen.availHeight;
+		document.write("<br/>availWidth->"+availWidth);
+		document.write("<br/>availHeight->"+availHeight);
+	</script>
+</div>
+</body>
+</html>

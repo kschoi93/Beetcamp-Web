@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document 내장 객체</title>
+</head>
+<body bgColor="lightblue" link="orange" vlink="yellow" alink="cyon">
+<a href="../index.html"> 홈</a>
+<a href="https://www.nate.com">네이트</a>
+<a href="js13_interval.html">IntervalHTML</a>
+<input type="button" value="클릭" id="clk"/>
+<script>
+	document.title = "자바스크립트에 제목 변경";
+	document.write("<br/>창 제목->"+document.title);
+	document.write("<br/>location->"+document.location);//프로토콜, url,port,컨텍스트, 경로, 파일명
+	document.write("<br/>URL->"+document.URL);
+	
+	document.write("<br/>lastModified->"+document.lastModified);
+	document.write("<br/>domain->"+document.domain);
+	
+	document.write("<br/>bgColor->"+document.bgColor);
+	
+	document.write("<br/>linkColor->"+document.linkColor);
+	
+	document.getElementById("clk").onclick = function(){
+		alert("버튼을 클릭하였습니다");
+	}
+	
+	document.cookie ="abcde";
+	document.write("<br/>"+document.cookie);
+</script>
+</body>
+</html>

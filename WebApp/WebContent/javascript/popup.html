@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업</title>
+<style>
+	img{width:300px;}
+</style>
+<script>
+	function closeBtn(){
+		//checkbox의 체크 상태 확인
+		if(document.getElementById("cookieCheck").checked){ // checked : true , false
+			//쿠키 저장한다
+			//변수, 데이터(값), 저장위치, 소멸시간을 설정
+			
+			// 날짜
+			var now = new Date();//현재날짜
+			now.setDate(now.getDate()+1);//1일 후 날짜
+			
+			// 				  변수	 데이터
+			document.cookie = "event=2월;path=/;expires="+now+";";
+		}
+		self.close();//window.close();
+	}
+</script>
+</head>
+<body>
+	<img src="../img/test.jpg"/><br/>
+	<input type="checkbox" id="cookieCheck"/>
+	하루동안 열지 않기
+	<input type="button" id="closeBtn" value="close" onclick="closeBtn()"/>
+</body>
+</html>
