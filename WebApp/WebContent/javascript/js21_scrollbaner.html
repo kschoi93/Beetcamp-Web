@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+		margin:0px;
+	}
+	#header1, #header2{
+		width:1000px;
+		height:100px;
+		margin:0 auto;
+	}
+	#header1{
+		background-color:#ddd;
+	}
+	#header2{
+		background-color:pink;
+	}
+	#bar{
+		position:relative;
+		height:3px;
+		background-color:blue;
+		z-index:100;
+	}
+	#content{
+		width:1000px;
+		margin:0 auto;
+		position: relative;
+		background-color:#ddd;
+	}
+	/*배너*/
+	#leftBanner, #rightBanner{
+		position:absolute;
+		width:100px;
+		background-color:lightblue;
+	}
+	#leftBanner{
+		left:-100px;
+		top:0px;
+		height:300px;
+	}
+	#rightBanner{
+		left:1000px;
+		top:0px;
+		height:400px;
+	}
+</style>
+<script>
+	// header1을 클릭하면 화면상 사라지는 기능
+	function event1(){
+		document.getElementById("header1").addEventListener('click',function(){
+			document.getElementById("header1").style.display = "none";
+		})
+	}
+	// 배너 움직이는것에 따라서 따라오는것을 설정 + 상담 Header1이 display non이 되었을때의 값 구해서 표현 포함
+	function bannerMove(){
+		var scrollY = window.scrollY;//현재 스크롧바 위치
+		//header의 높이 구하기
+		var top = 200;
+		if(document.getElementById("header1").style.display=='none'){ // header1이 display none일때
+			top = 100;
+		}
+		var b = document.getElementById("bar").style;
+		var lBanner = document.getElementById("leftBanner").style;
+		var rBanner = document.getElementById("rightBanner").style;
+		if(scrollY > top){ // 스크롤바가 top보다 내려갔을때
+			b.top = scrollY-top+"px";
+			lBanner.top = scrollY-top+"px";
+			rBanner.top = scrollY-top+"px";
+		} else {
+			b.top = 	 "0px";
+			lBanner.top= "0px";
+			rBanner.top= "0px";
+		}
+	}
+	
+	var idx=1;
+	function txtTyping(){
+		var str = "타이핑 문자처리 하기 연습중...";
+		var cutText = str.substr(0,idx++); // str.substring(0,idx++); str.slice(0,idx++);
+		//document.getElementById("txt").placeholder = cutText;
+		
+		
+		
+		// 문자열 자르기 초기화
+		if(idx>str.length){
+			idx=1;
+		}
+	}
+	
+</script>
+</head>
+<body onload="event1();setInterval('txtTyping()',300);" onscroll="bannerMove()">
+<div id="header1"></div>
+<div id="header2">
+	<input type="text" id="txt"/>
+</div>
+<div id="bar"></div>
+<div id="content">
+	<img src="layout/img/testimg1.JPG" width="1000px" height="500px"/>
+	<img src="layout/img/testimg2.JPG" width="1000px" height="500px"/>
+	<img src="layout/img/testimg3.JPG" width="1000px" height="500px"/>
+	<img src="layout/img/testimg6.JPG" width="1000px" height="500px"/>
+	<img src="layout/img/testimg5.JPG" width="1000px" height="500px"/>
+	<!-- 배너 -->
+	<div id="leftBanner">111</div>
+	<div id="rightBanner">222</div>
+</div>
+</body>
+</html>

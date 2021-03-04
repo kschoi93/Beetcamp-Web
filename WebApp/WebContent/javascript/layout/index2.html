@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{margin:0px;}
+header{width:800px;height:150px;margin:0 auto;}
+header>div:first-child{height:75px;background-color:pink;}
+header>div:last-child{height:75px;background-color:lightblue;}
+#textBox{position:relative;left:30px;top:30px;width:300px;height:30px;line-height:30px;background-color:white;border:1px black solid;}
+
+hr{margin:0px;padding:2px;background-color:blue;z-index:2;}
+
+section{width:1000px;height:150px;margin:0 auto;overflow:visible;}
+section>div:first-child{width:100px;height:150px;background:silver;float:left;}
+section>div:last-child{width:100px;height:150px;background:lime;float:right;}
+#imgtag{width:800px;height:300px;background:red;float:left;z-index:1;position:absolute;left:300px;}
+img{width:800px; height:500px;}
+</style>
+<script>
+	//img
+	function imgtag(){
+		var tag ="";
+		for(var i=1; i<=8; i++){
+			tag += "<img src='img/testimg"+i+".JPG'/>";
+		}
+		document.getElementById("imgtag").innerHTML = tag;
+	}
+	
+	//scroll
+	function scrolltag(){
+		window.scrollBy(0,75);
+	}
+	
+	//현재 스크롤바 위치
+	function setHr(){
+		var y = window.scrollY;
+		var oWidth = window.outerWidth;
+		if(y>=150){
+			document.getElementById("hr").style.position = "fixed";
+			document.getElementById("hr").style.top = "0";
+			document.getElementById("hr").style.width = oWidth+"px";
+			document.getElementById("leftDiv").style.position = "fixed";
+			document.getElementById("leftDiv").style.top = "5px";
+			document.getElementById("imgtag").style.position = "absolute";
+			document.getElementById("imgtag").style.left ="100px";
+			document.getElementById("imgtag").style.marginLeft ="100px";
+			document.getElementById("rightDiv").style.position = "fixed";
+			document.getElementById("rightDiv").style.top= "5px";
+			document.getElementById("rightDiv").style.left= "1160px";
+		} else{
+			document.getElementById("hr").style.position = "static";
+			document.getElementById("leftDiv").style.position = "static";
+			document.getElementById("imgtag").style.position = "static";
+			document.getElementById("imgtag").style.marginLeft="300px";
+			document.getElementById("rightDiv").style.position = "static";
+		}
+		console.log(document.getElementById("imgtag").getBoundingClientRect().right);
+		console.log(document.getElementById("imgtag").getBoundingClientRect().width);
+	}
+	
+	
+</script>
+</head>
+<body onload="imgtag();" onscroll="setHr();" onresize="setHr()">
+	<header>
+		<div onclick="scrolltag()"></div>
+		<div>
+			<div id="textBox">자바스크립트로 레이아웃 연습중</div>
+		</div>
+	</header>
+	<hr id="hr"/>
+	<div id="imgtag"></div>
+	<section>
+		<div id="leftDiv">하하하하하핳</div>
+		<div id="rightDiv">아이 즐거웡</div>
+	</section>
+</body>
+</html>

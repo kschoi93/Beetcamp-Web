@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{margin:0px;}
+#main{border:solid 1px gray;margin:100px auto 0 auto;width:1000px;}
+#header{text-align:center;border-bottom:1px solid gray;}
+#header img {width:100px;height:100px;}
+#hiddenDiv{color:yellow;font-size: 3em;position:absolute;display:none;}
+#section img { width:800px; height:700px; text-align:center;}
+#section{width:800px;margin:0 auto; }
+</style>
+<script>
+// 이미지 나열
+function setImg(){
+	var img ="";
+	for(var i=1; i<=7;i++){
+		img += "<img src='img/testimg"+i+".JPG'/>";
+	}
+	document.getElementById("viewer").innerHTML = img;
+}
+function setSectionImg(){
+	var img ="";
+	for(var i=1; i<=7;i++){
+		img += "<img src='img/testimg"+i+".JPG'/>";
+	}
+	document.getElementById("section").innerHTML = img;
+}
+var timer;
+
+// 클린된 사진을 기준으로 풀스크린 만들기
+function changeScreen(){
+	document.body.style.background = "url('img/testimg1.JPG')";
+	document.body.style.backgroundSize = "cover";
+	document.getElementById("main").style.display = "none";
+	document.getElementById("lockScreen").innerHTML = "<img src='img/wingani.gif' width='100px' height='30px' id='ls'/>";
+	document.getElementById("ls").style.position = "relative";
+	document.getElementById("lockScreen").onload = setInterval('imgMove()',100);
+
+	console.log(document.getElementById("hiddenDiv"));
+	document.getElementById("hiddenDiv").style.display ='block';
+	//divCheck.style.display = 'block';
+	
+	
+}
+var screen2Check = 0;
+function change2Screen(){
+	if(screen2Check=2){
+		//document.body.style.background = 'none';
+		document.getElementById("lockScreen").style.display = "block";
+		//document.getElementById("lockScreen") = "";
+		screen2Check = 0;
+	}
+	screen2Check++;
+}
+
+var x=0;
+var y=0;
+var stepX=10;
+var stepY=10;
+function imgMove(){
+	x = x + stepX;
+	y = y + stepY;
+	
+	var screenX=window.innerWidth;
+	var screenY=window.innerHeight;
+	
+	document.getElementById("ls").style.left = x+"px";
+	document.getElementById("ls").style.top = y+"px";
+	
+	if(x>=screenX-100){stepX=-10;} 
+	else if(x<=0){stepX=10;}
+	if(y>=screenY-40){stepY=-10;} 
+	else if(y<=0){stepY=10;}
+	
+}
+
+</script>
+</head>
+<body onload="setImg();setSectionImg();"onclick="change2Screen()">
+<div id="hiddenDiv">아무곳이나 누르면 원래 화면으로 돌아감</div>
+<div id="lockScreen" >
+	<div id="main">
+		<div id="header">
+			이미지를 클릭하시면 화면보호기가 실행됩니다.<br/>
+			<div id="viewer" onclick="changeScreen();"></div>
+		</div>
+		<div id="section">
+			
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>

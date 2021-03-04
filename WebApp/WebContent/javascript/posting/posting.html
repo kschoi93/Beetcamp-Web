@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{margin:0;padding:0px;}
+	#box{height:1014px;width:700px;margin:30px auto;}
+	#leftMove, #rightMove{height:114px; width:20px;float:left;}
+	ul,li{margin:0;padding:0;list-style:none;float:left;}
+	#posting{height:114px;width:656px;overflow:hidden;float:left;}
+</style>
+<script>
+	console.log(posting.scrollX());
+	function leftMove(){
+		setInterval(window.scrollBy(5,0),1000);
+	}
+	function rightMove(){
+		var scrollm = window.scrollBy(0,30);
+		setInterval(scrollm,10);
+	}
+	function imgArray(){
+		var imgPosting = new Array;
+		for(i=1; i<=20; i++){
+			if(i<10){
+				imgPosting[i] = "<li><img src='img/movie0"+i+".png'/></li>";
+			} else if(i<=20){
+				imgPosting[i] = "<li><img src='img/movie"+i+".png'/></li>";
+			}
+		}
+		
+		for(i=1; i<=20; i++){
+			document.write(imgPosting[i]);
+		}
+	}
+</script>
+</head>
+<body >
+<div id="box">
+	<input type="button" name="leftMove" id="leftMove" value="<" onclick="leftMove()"/>
+	<div id="posting" onload="rightMove()"><script>imgArray();</script></div>
+	<input type="button" name="rightMove" id="rightMove" value=">" onclick="rightMove()"/>
+</div>
+</body>
+</html>

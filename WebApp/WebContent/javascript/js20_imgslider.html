@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#post{width:880px;height:114px;margin:0 auto;}
+	#post>input[type=button]{width:30px;height:114px ;}
+	#post>div{width:820px;height:114px;background:pink;overflow:hidden;}
+	#post>input,#post>div{float:left;}
+	#imgLst{width:1640px;position:relative;}
+</style>
+<script>
+	function setPostImage(){
+		var tag = "";
+		for(var i=1; i<=20; i++){
+			tag += "<img src='posting/img/movie";
+			if(i<10){
+				tag+= "0"+i;
+			} else {
+				tag+= i;
+			}
+			tag +=".png'/>"
+		}
+		//console.log(tag);
+		document.getElementById("imgLst").innerHTML = tag;
+	}
+	
+	//movie리스트가 움직이는 메소드
+	var x=0;
+	var stepX = -5;
+	var timer;
+	function imageMove(){
+		var movie = document.getElementById("imgLst");
+		x = x + stepX;
+		movie.style.left = x + "px";
+		if(x<=-820)stepX = 5;
+		if(x==0)stepX= -5;
+	}
+</script>
+</head>
+<body onload="setPostImage(); timer=setInterval('imageMove()',300);">
+<div id="post">
+	<input type="button" value="◁" onclick="stepX=-5;"/>
+	<div onmouseenter="clearInterval(timer);" onmouseleave="timer = setInterval('imageMove()',300)">
+		<div id="imgLst"></div>
+	</div>
+	<input type="button" value="▷" onclick="stepX=5"/>
+</div>
+</body>
+</html>

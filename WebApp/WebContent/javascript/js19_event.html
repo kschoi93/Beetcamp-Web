@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#test{
+	height:100px;border:1px solid gray;}
+</style>
+<script>
+	document.onmouseenter = function(){
+		document.body.backgroundColor="yellow";
+	}
+</script>
+</head>
+<body>
+<!--  구현방법 1 
+<div id="test" onclick="this.style.background='pink'">-->
+<!--  구현방법 2 -->
+<div id="test">
+	이벤트 구현 방법
+</div>
+<script>
+	// 이벤트 처리방법 2 : addEventListener()를 이용
+	var d1 = document.getElementById("test");
+	
+	function event1(){
+		d1.style.backgroundColor="#ddd";
+	}
+	// 					이벤트 종류		 이벤트 발생시 실행할 함수
+	d1.addEventListener('mouseover', event1 );
+	
+	d1.addEventListener('click', function(){
+		d1.style.color="red";
+	});
+</script>
+</body>
+</html>
