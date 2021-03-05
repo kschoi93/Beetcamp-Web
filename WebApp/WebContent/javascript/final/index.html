@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{margin:0px;}
+	#main{
+		width:500px;
+		overflow:hidden;
+		margin:0 auto;
+		background-color:yellow;
+	}
+	/*img margin*/
+	#main>img{margin:3spx auto;}
+	#popup{
+		width:300px;
+		height:342px;
+		position:absolute;
+		left:100px;
+		top:100px;
+		border:solid 2px black;
+		display:none;				/*popup 숨겨 놓는다*/
+	}
+	#popupName{
+		width:100%;
+		height:40px;
+		line-height:40px;
+		text-align:center;
+		background-color:gray;
+		border-bottom:solid 2px black;
+	}
+	#popupImg{
+		width:300px;
+		height:300px;
+		background-color:lightblue;
+	}
+</style>
+<script>
+	var tag ="";
+	function imgSet(){
+		var out=0;
+		
+		do{
+			for(var i=1; i<=15; i++){
+				tag += "<img src='img/testimg"+i+".JPG' width='100' height='100' onclick='popupSet()'/>"
+			}
+			document.getElementById("main").innerHTML = tag;
+			out++;
+			if(out==3) break;
+		}while(true)
+	}
+	var eventX,eventY, divX,divY;
+	function popupSet(){
+		document.getElementById("popup").style.display = "block";
+		eventX = event.clientX;
+		eventY = event.clientY;
+		
+		document.getElementById("popup").style.left = eventX-150+"px";
+		document.getElementById("popup").style.top = eventY+"px";
+		
+		console.log();
+	}
+	
+</script>
+</head>
+<body onload="imgSet();">
+<div id="main"></div>
+<div id="popup">
+	<div id="popupName"></div>
+	<div id="popupImg"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiyi8IBKuUJnY0RccI6KvVWJslar5cPWg&callback=initMap"></script>
+<style>
+	#mapSearch{
+		position:absolute;
+		top:50px;
+		left:400px;
+	}
+</style>
+</head>
+<body>
+<div id="gMap"></div>
+<!-- 검색키 입력 -->
+<div id="mapSearch">
+	<input type="text" id="addrSearch"/>
+	<input type="button" value="search" onclick="mapSearchStart()"/>
+</div>
+<script>
+	var latitude, longitude;
+	var pAddr;//지명
+	var pHome;//홈페이지 주소
+	var pImg;//대표이미지
+	function setMap(){
+		latitude = 37.5729503;
+		longitude = 126.9793578;
+		
+		pAddr = ['서울 선유도', '서울 뚝섬', '서울 잠실종합운동장','서울 시청'];
+		pHome = ['https://www.nate.com','https://www.daum.net','https://naver.com','https://www.seoul.go.kr/main/index.jsp'];
+		pImg = ['testimg1.JPG','testimg2.JPG','testimg3.JPG','testimg4.JPG','testimg5.JPG'];
+		
+	}
+	var map,geoCoder;
+	function initMap(){
+		setMap();
+		
+		document.getElementById("gMap").style.height = window.innerHeight-20+"px";
+		var myCenter = new google.maps.LatLng(latitude, longitude);
+		var option = {
+				center : myCenter,
+				zoom : 12,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+		
+		map = new google.maps.Map(document.getElementById("gMap"), option);
+		
+		geoCoder = new google.maps.Geocoder();//지명으로 지도 위치 설정할수 있는 객체
+		
+		for(var i=0; i<pAddr.length; i++){
+			setGeocoderPosition(pAddr[i], pHome[i], pImg[i]);
+		}
+	}
+	
+	function setGeocoderPosition(addr, home, img){
+		geoCoder.geocode(
+			{'address':addr},//지도를 표시할 지명
+			// status에 지명이 존재하는 곳이면 'OK'가 대입된다.
+			function(results,status){
+				if(status=='OK'){//주소가 있으면
+					//지정된 위치를 센터로 옮기기			 위도+경도
+					map.setCenter(results[0].geometry.location);
+				
+					//마커
+					var marker = new google.maps.Marker({
+						map : map,
+						icon : '../img/gmap_pin.png',
+						title : results[0]['formatted_address'], // 주소
+						position : results[0].geometry.location
+					});
+					
+					//팝업에 나올 내용
+					
+					var la = results[0]['geometry']['location']['lat']();//위도
+					var ln = results[0]['geometry']['location']['lng']();//경도
+					var add = results[0]['formatted_address'];
+					
+					var infoText = "위도:"+la+"<br/>경도:"+ln+"<br/>주소:"+add+"<br/>";
+						infoText += "<a href='"+home+"'><img src='../img/"+img+"' width='80' height='50'/></a>"
+						
+					var info = new google.maps.InfoWindow({content:infoText});
+						
+					// 팝업 이벤트 처리
+					google.maps.event.addListener(marker, 'mouseover',function(){info.open(map,marker)});
+					//google.maps.event.addListener(marker, 'mouseout',function(){info.close(map,marker)});
+					
+					
+				}//if
+			}//function
+		);
+	}
+	// 지역검색 
+	function mapSearchStart(){
+		var search = document.getElementById("addrSearch").value;
+		if(search!=""){
+			setGeocoderPosition(search, 'https://www.nate.com','testimg1.JPG');
+		}
+	}
+</script>
+</body>
+</html>

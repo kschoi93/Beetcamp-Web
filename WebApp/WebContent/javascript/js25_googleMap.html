@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구글맵</title>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYPrJtPT3ZbtWCRBJDGSzbcRgORfEoz90&callback=initMap"></script>
+</head>
+<body>
+<div id="gMap"></div>
+<script>
+
+	document.getElementById("gMap").style.height = window.innerHeight+"px";
+	//위도, 경도
+	var latitude = 37.5729503;
+	var longitude = 126.9793578;
+	var arrLatitude = [37.5729503,37.5777103,37.5783533,37.565593, 37.5747403];
+	var arrLongitude = [126.9776538,126.9735678,126.9793571,126.97199238,126.9745478];
+	
+	function initMap(){
+		//위도 경도를 이용한 위치객체
+		var myCenter = new google.maps.LatLng(latitude, longitude);
+		
+		var mapProperty = {
+				center : myCenter,
+				zoom : 14,//0~21까지의 값을 사용한다. 숫자가 클수록 확대
+				mapTypeId : google.maps.MapTypeId.ROADMAP//지도 종류(ROADMAP, HYBRID, STEELITE, TERRAIN)
+		};
+			
+		//지도 객체 생성				지도를 표시할곳,
+		var map = new google.maps.Map(document.getElementById("gMap"), mapProperty);
+		
+		//마커 표시
+		var marker = new google.maps.Marker({
+			position : myCenter,//표시 위치
+			map : map, // 마커를 표시할 지도 객체
+			title : '서울시청' //마커의 마우스 오버시 풍선도움말
+			,icon : '../img/gmap_pin.png' //마커이미지
+		});
+		
+		marker.setMap(map);
+		
+		//마커 클릭시 정보 대화상자 띄우기
+		//대화상자 내용만들기
+		var information = "위도:"+latitude+"<br/>경도:"+longitude+"<br/>서울시청<br/>";
+			information += "<a href='https://www.seoul.go.kr/main/index.jsp'><img src='../img/1.jpg' width='80px' height='50px'/></a>";
+			
+		var info = new google.maps.InfoWindow({
+			content : information,
+		});
+		
+		//이벤트 등록					 클릭대상,  이벤트 종류  클릭시 호출할 함수			지도, 마커
+		google.maps.event.addListener(marker, 'mouseover', function(){info.open(map,marker)});
+		
+		//여러개의 마커 표시하기
+		for(var i=0; i<arrLatitude.length;i++){
+			var mk = new google.maps.Marker({
+				position : new google.maps.LatLng(arrLatitude[i], arrLongitude[i]),
+				map : map,
+				title : "위도: "+arrLatitude[i]+", 경도:"+ arrLongitude[i]
+			})
+			mk.setMap(map);
+		}
+		
+		//반경표시
+		var myCity = new google.maps.Circle({
+			center : myCenter//반경을 표시할 기준 위치
+			,radius : 500 //반경 : m단위
+			,strokeColor : '#f00'//선의 색상
+			,strokeOpacity : 0.7//선의 투명도 0~1사이의 값
+			,strokeWidth : 5//선의 두께
+			,fillColor : '#0f0' // 배경색 
+			,fillOpacity : 0.5
+		});
+		myCity.setMap(map);
+	}
+	
+</script>
+</body>
+</html>
