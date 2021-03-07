@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	body{margin:0px;}
+	body{width:100%;height:100%;margin:0px;}
 	#main{
 		width:500px;
-		overflow:hidden;
+		height:100%;
 		margin:0 auto;
 		background-color:yellow;
 	}
@@ -21,6 +21,7 @@
 		top:100px;
 		border:solid 2px black;
 		display:none;				/*popup 숨겨 놓는다*/
+		z-index:10;
 	}
 	#popupName{
 		width:100%;
@@ -33,7 +34,15 @@
 	#popupImg{
 		width:300px;
 		height:300px;
-		background-color:lightblue;
+	}
+	#disableDiv{
+		width:100%;
+		height:100%;
+		position:absolute;
+		background:black;
+		display:none;
+		top:0px;
+		opacity : 0.5;
 	}
 </style>
 <script>
@@ -43,32 +52,87 @@
 		
 		do{
 			for(var i=1; i<=15; i++){
-				tag += "<img src='img/testimg"+i+".JPG' width='100' height='100' onclick='popupSet()'/>"
+				tag += "<img src='img/testimg"+i+".JPG' width='100' height='100' onclick='popupSet(this.src)'/>"
 			}
 			document.getElementById("main").innerHTML = tag;
 			out++;
 			if(out==3) break;
 		}while(true)
 	}
-	var eventX,eventY, divX,divY;
-	function popupSet(){
-		document.getElementById("popup").style.display = "block";
+	var popup;
+	var disableDiv;
+	// popup 설정
+	var eventX, eventY, divX, divY, moveX, moveY, flag=false;
+	function popupSet(selImg){
+		popup = document.getElementById("popup").style;
+		disableDiv = document.getElementById("disableDiv").style;
+		//이미지 클릭시 popup, disable block
+		popup.display = "block";
+		disableDiv.display = "block";
+		var bodyHeight = document.body.clientHeight;
+		document.getElementById("disableDiv").style.height = bodyHeight+"px";
+		
+		// 이벤트 발생위치
 		eventX = event.clientX;
 		eventY = event.clientY;
+
 		
-		document.getElementById("popup").style.left = eventX-150+"px";
-		document.getElementById("popup").style.top = eventY+"px";
+		//popup 실행위치 = 이벤트 발생위치;
+		popup.left = eventX-150+"px";
+		popup.top = eventY+"px";
+		document.getElementById("popupImg").innerHTML = "<img src='"+selImg+"' width='100%' height='100%' onclick='popupNone();'/>";
 		
-		console.log();
+		console.log(" popupSet --> "+popup.left + ", " + popup.top);
+		
+		// popupName 대입
+		var selNameNum = selImg.indexOf("test");				 // img src name 확인
+		var result = selImg.substring(selNameNum,selImg.length); // 파일 이름만 추출
+		document.getElementById("popupName").innerHTML = result;
+		
 	}
+	// popupImg 누를경우 None
+	function popupNone(){
+		popup.display = "none";
+		disableDiv.display ="none";
+	
+	}
+	function popupMoveStart(){
+		flag=true;
+
+		//popup창의 좌표 구하기
+		divX = parseInt(popup.left);
+		divY = parseInt(popup.top);
+		
+		document.onmousemove = popupDrag;
+	}
+	// popupDrag 옮기기
+	function popupDrag(){
+		if(flag){
+			moveX = event.clientX;
+			moveY = event.clientY;
+			
+			var x = moveX - eventX;
+			var y = moveY - eventY;
+			
+			// 팝업 이동하기
+			popup.left = divX+x+"px";
+			popup.top = divY+y+"px";
+			console.log(" popupDrag --> "+popup.left + ", " + popup.top);			
+		}
+	}
+	function setFlag(){
+		flag = false;
+	}
+	document.onmouseup = setFlag;
 	
 </script>
 </head>
 <body onload="imgSet();">
 <div id="main"></div>
 <div id="popup">
-	<div id="popupName"></div>
+	<div id="popupName" onmousedown="popupMoveStart()"></div>
 	<div id="popupImg"></div>
 </div>
+<div id="disableDiv"></div>
 </body>
 </html>
