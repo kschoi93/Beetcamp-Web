@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 선택자</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//속성 선택자
+		// a태그에 title이라는 속성이 있으면 선택
+		$('a[title]').parent().css('background-color','pink');
+		
+		// a태그에 href속성의 값이 같은 객체 선택
+		$("a[href='https://www.naver.com']").css('font-size','2em');
+		
+		// ^= : 특정문자로 시작하면 선택
+		$("a[href^='https']").css('background-color','yellow');
+		
+		// $= : 특정문자로 끝나면 객체 선택
+		$('a[href$="com"').parent().css('background-color','lightblue');
+		
+		// *= : 특정문자가 포함되면 객체 선택
+		$('a[href*="na"]').css('color','red');
+		
+		$('a[class=best]').css('font-size','3em').css('padding','10px');
+	});
+	
+	function startScript(){
+		console.log('함수 실행됨....');
+	}
+</script>
+</head>
+<body>
+<ul>
+	<li><a href="https://www.nate.com" class= "test">네이트</a></li>
+	<li><a href="https://www.hanmail.net" class = "best">다음</a></li>
+	<li><a href="https://www.naver.com" class = "test">네이버</a></li>
+	<li><a href="https://www.jquery.com" class = "best" title="제이쿼리 홈페이지로 이동합니다~~">제이쿼리</a></li>
+	<li><a href="https://www.spring.io" class="test">스프링프레임워크</a></li>
+	<li><a href="https://www.w3schools.com" class ="best">w3schools</a></li>
+	<li><a href="javascript:startScript()" class ="test">메일보내기</a></li>
+	
+	
+</ul>
+
+</body>
+</html>

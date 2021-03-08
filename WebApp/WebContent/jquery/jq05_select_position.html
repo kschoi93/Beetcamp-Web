@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//위치 선택자
+		$('ol>li:first').css('color','red');// li중에 첫번째 객체 선택
+		$('ol>li:last').css('color','blue');// li중에 마지막 객체 선택
+		
+		$('ol>li:even').css('background-color','pink'); // index --> 0번째부터 li중에 짝수 객체 선택
+		$('ol>li:odd').css('background-color','lightblue'); // index --> 0번째부터 li중에 홀수 객체 선택
+		
+		// nth - 마지막에서 순서대로 선택
+		$('ol>li:nth-last-of-type(3)').css('color','green');
+		$('ol>li:nth-child(3n)').css('border-bottom','2px solid red');
+		
+		//slice() : index 위치에서 끝까지 객체 선택
+		$('ol>li').slice(3).css('font-size','2em');
+		//eq() : index 위치의 객체 선택
+		$('ol>li').eq(3).css('color','red');
+		
+		// lt() : index 위치보다 작은위치 선택
+		$('ol>li:lt(4)').css('font-family','궁서체');		
+		// gt() : index 위치보다 큰 위치 선택
+		$('ol>li:gt(4)').css('color','cyan');
+		//부모 객체 중에서 자손이 1개인 객체 선택
+		$('li:only-child').css("background-color","yellow").css("border",'2px solid red');
+	});
+</script>
+</head>
+<body>
+<ol>
+	<li>html</li>
+	<li>css</li>
+	<li>javascript</li>
+	<li>jquery</li>
+	<li>bootstrap</li>
+	<li>ajax</li>
+	<li>jsp(java server page)</li>
+	<li>spring framework</li>
+</ol>
+<ul>
+	<li>위치 선택자</li>
+</ul>
+</body>
+</html>

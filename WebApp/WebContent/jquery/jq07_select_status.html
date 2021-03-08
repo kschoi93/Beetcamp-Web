@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상태 선택자</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//상대선택자
+		// :text -> 속성값이 text인 객체를 선택한다.
+		$(":text").css("background-color","pink");
+		
+		// :checked -> 체크해제
+		$(":checked").attr('checked',false);
+		
+		// selectedIndex -> 선택된 목록의 index
+		console.log( $("#site").prop('selectedIndex'), $("#site").val() )
+		
+		// :selected
+		$(":selected").attr('selected',false);
+		
+		// 컨텐츠 선택자
+		$("p").css("margin","10px").css('padding','10px').css('border','3px green solid');
+		
+		// contains() : 특정문자열이 포함된 경우 선택
+		$("p:contains('모세의 기적은')").css('background-color','lightblue');
+		
+		// has() : 하위에 특정 태그가 포함되면 선택
+		$("p:has('b')").css('color','red');
+		
+		// not() : 특정 선택자를 제외한 나머지를 선택한다
+		$("p:not(:first)").css('color','blue');
+		
+		// closest : 조상 선택자
+		$("i").closest('body').css('border','3px dashed green');
+	
+		//filter()
+		$('p').filter('.c1').css('text-decoration','underline');
+		
+		//content() : 선택자의 하위 내용이 다른 태그에 포함된 경우
+		$('p').contents().css('font-size','2em');
+	})
+
+</script>
+</head>
+<body>
+<div>
+	<p>모세의 기적은 <b>홍해를 건넌것이 아니라</b> reed sea 라는 호수를 건넌것이다.</p>
+	<p class="c1">가운데만 다른 문자를 넣어봅시다 ㅇㅋ? 알겠죠? 왜냐? 테스트 할 거니까 ㅎㅎ</p>
+	<p class="c1">모세의 기적은 홍해를 건넌것이 <i>아니라 reed sea </i>라는 호수를 건넌것이다.</p>
+	
+</div>
+
+<form>
+	<ul>
+		<li><label>이름</label></li>
+		<li><input type="text" name="username" id="username"/>
+		<li><label>연락처</label></li>
+		<li><input type="text" name="tel" id="tel"/></li>
+		<li><label>사용동의여부</label></li>
+		<li><input type="radio" name="accept" value="yes" checked/>동의
+			<input type="radio" name="accept" value="no"/>미동의
+		</li>
+		<li><label>자주가는 사이트</label></li>
+		<li>
+			<select name='site' id='site'>
+				<option value="not">==직접선택==</option>
+				<option value="daum">다음</option>
+				<option value="nate" selected>네이트</option>
+				<option value="naver">네이버</option>
+			</select>
+		</li>
+		<li>
+			<input type="button" value="회원"/>
+		</li>
+		
+	</ul>
+</form>
+</body>
+</html>

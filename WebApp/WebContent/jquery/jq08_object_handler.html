@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//text, html - innerHTML
+		var tag = "<img src='../img/wine1.jpg'/><div>글자</div>";
+		//document.getElementById("result").innerHTML = tag;
+		$('#result').html(tag);
+		
+		console.log($('#result').html());
+		
+		// text : 문자로 들어간다.
+		$('#result').text(tag);
+		console.log($('#daum1').text());
+		
+		//$('h2>a')
+		$('h2').children('a').attr('href','https://www.nate.com')
+		$("h2>a").attr('target','_blank');
+		
+		//속성값 지우기
+		//$('h2').children('a').attr('href','');
+		$('a').removeAttr('href');
+	})
+</script>
+</head>
+<body>
+<h1 id="daum1">객체 조작1</h1>
+<h2><a href="">객체 조작2</a></h2>
+<div id="result"></div>
+</body>
+</html>

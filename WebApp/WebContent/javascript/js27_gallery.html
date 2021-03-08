@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#mainDiv{
+		width:900px;
+		margin:0px auto;
+	}
+	#mainDiv>img{
+		width:150px;
+		height:150px
+	}
+	#modal{
+		background-color:gray;
+		opacity:0.5;
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		display: none;
+	}
+	#bigShow{
+		width:500px;
+		height:540px;
+		border:1px solid gray;
+		border-radius:5px;
+		background-color:#ddd;
+		position:absolute;
+		display:none;
+		z-index:100;
+	}
+	#filename{
+		font-size:1.5em;
+		text-align:center;
+		height:40px;
+		background-color:#ccc;
+	}
+	#bigImage{
+		width:500px;
+		height:500px;
+	}
+</style>
+<script>
+	function setImage(){
+		var tag = "";
+		for(var j=1; j<=4; j++){
+			for(var i=1; i<=13; i++){
+				tag += "<img src='final/img/testimg";
+				tag += i+".JPG' width='100%' height='100%' onclick='bigShowStart(this.src)'/>";
+			}
+		}
+		document.getElementById("mainDiv").innerHTML = tag;
+	}
+	function bigShowStart(filename){
+		//모달
+		var modal = document.getElementById("modal");
+		modal.style.display = "block";
+		//컨텐츠 높이 만큼 모달 높이를 지정
+		// document.body.scrollHeight ; document.documentElement.clientHeight;
+		modal.style.height = document.body.scrollHeight + "px";
+		//큰 이미지
+		
+		//마우스 클릭 좌표 구하기
+		var x = event.clientX-250;
+		var y = event.clientY + window.scrollY;
+		
+		var bigShow = document.getElementById("bigShow");
+		bigShow.style.display = "block";
+		bigShow.style.left = x+"px";
+		bigShow.style.top = y+"px";
+		
+		document.getElementById("filename").innerHTML = filename.substring(filename.lastIndexOf("/")+1);
+		document.getElementById("bigImage").src = filename;
+	}
+	function bigShowClose(){
+		document.getElementById("modal").style.display = "none";
+		document.getElementById("bigShow").style.display = "none";
+	}
+	// div이동=====================
+	var flag=false, bigX, bigY, x, y;
+	function moveStart(){ //마우스 누른 상태일때
+		flag=true;
+		
+		bigX = parseInt(document.getElementById("bigShow").style.left);
+		bigY = parseInt(document.getElementById("bigShow").style.top);
+		
+		x = event.clientX;
+		y = event.clientY;
+		
+		document.onmousemove = divMove;
+	}
+	function divMove(){
+		if(flag){
+			document.getElementById("bigShow").style.left = (event.clientX - x) + bigX+"px";
+			document.getElementById("bigShow").style.top = (event.clientY - y) + bigY+"px";
+		}
+	}
+	function divClose(){
+		flag = false;
+	}
+	document.onmouseup= divClose; 
+	
+	
+</script>
+</head>
+<body onload="setImage()">
+<div id="mainDiv"></div>
+<!-- 모달 -->
+<div id="modal"></div>
+<div id="bigShow">
+	<div id="filename" onmousedown="moveStart()"></div>
+	<img src="" id="bigImage" onclick="bigShowClose()"/>
+</div>
+</body>
+</html>

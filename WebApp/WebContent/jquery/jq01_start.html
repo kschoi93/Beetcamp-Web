@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	jquery는 javascript 라이브러리이다.
+	
+	http://www.jquery.com에서 다운로드 / 다른 이름으로 저장해야 한다
+	
+	html -> css -> javascript실행부 -> jquery 실행부
+	이벤트는 jquery실행후 실행됨?????
+	
+	html -> css -> javascript -> onload -> body -> jquery
+ -->
+<script src="lib/jquery-3.6.0.min.js"></script>
+<script>
+	alert("자바스크립트");
+	
+	// jquery 코드
+	// 선택자		이벤트종류 : body 실행이 끝나면 jquery ready event 발생
+	$(document).ready(
+		function(){
+			//jquery 실행부
+			alert("jquery 실행부");
+		}	
+	);
+	
+	
+</script>
+</head>
+<body onload="alert('onload실행.....');">
+<h1>html 문서....</h1>
+</body>
+</html>
