@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	div{
+		border:2px solid red; margin:5px;
+	}
+</style>
+<script>
+	$(function(){
+		// 객체조작 메소드
+		// wrap() : 선택자를 특정 태그로 각각 감싼다.
+		$(".c1").wrap('<div/>');
+		
+		// wrapAll() : 선택자를 특정 태그로 한번에 감싼다.
+		$(".c2").wrapAll('<div/>');
+		
+		// wrapInner() : 선택자를 내용을 특정 태그로 감싼다.
+		$(".c2").wrapInner('<b/>');
+		
+		// unwrap() : 선택자의 부모객체를 삭제한다
+		$(".c2").unwrap();
+		
+		// each() : 반복자, 객체를 순서대로 처리한다.
+		// 					idx =0,1,2,3,4,5,6  obj =li,li,li,li,li,li,li;
+		$("#lst>li").each(function(idx, obj){
+			var txt = "<b>each()를 이용한 반복 객체 조작 ("+idx+")</br>";
+			$(obj).html(txt);
+		});
+		
+		// map() : 배열을 이용한 반복처리를 한다
+		var arrList = ['걷기','달리기','자전거','바이크','등산','여행','쇼핑'];
+		
+		var tag = "<select name='hobby'>"
+		
+		// 배열명.map()
+		//					value, index
+		arrList.map(function(v, 	i){
+			tag += "<option value='"+v+"'>"+v+"("+i+")</option>";
+		});
+		tag+="</select>";
+		
+		$("body").prepend(tag);
+	});
+</script>
+</head>
+<body>
+<div class="c1">객체 조작 메소드 1</div>
+<div class="c1">객체 조작 메소드 2</div>
+<div class="c2">객체 조작 메소드 3</div>
+<div class="c2">객체 조작 메소드 4</div>
+<ul id="lst">
+	<li>객체 조작 메소드 AAAAAA</li>
+	<li>객체 조작 메소드 BBBBBB</li>
+	<li>객체 조작 메소드 CCCCCC</li>
+	<li>객체 조작 메소드 DDDDDD</li>
+	<li>객체 조작 메소드 EEEEEE</li>
+	<li>객체 조작 메소드 FFFFFF</li>
+	<li>객체 조작 메소드 GGGGGG</li>
+</ul>
+</body>
+</html>

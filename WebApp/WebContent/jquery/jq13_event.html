@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//이벤트 처리방법 1----------------------
+		/*
+		$('h1').click(function(){
+			//이벤트 발생시 실행할 명령어.....
+			// this : 이벤트가 발생한 객체
+			$(this).css('background','orange');
+		
+			$(this).html( $(this).text() + "＊" );
+		});
+		*/
+		
+		//이벤트 처리방법 2-----------------------
+		$('h2').on('click',function(){
+			$(this).css("color","red");
+		});
+		
+		//이벤트 처리방법 3-----------------------
+		$('h1').on({mouseenter:function(){
+			//마우스 오버일때 실행
+			$(this).css("background-color","pink");
+		} , mouseleave:function(){
+			//마우스 아웃일때 실행
+			$(this).css("background-color","#ddd");
+		}});
+		
+		//이벤트 처리방법 4------------------------
+		// 이벤트는 다르나 실행문이 같을때 click, focus
+		$('input').on('click focus',function(){
+			$(this).val('Event발생함');
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<h1>제이쿼리에서 이벤트 처리하기</h1>
+	<h1>제이쿼리에서 이벤트 처리하기</h1>
+	<h1>제이쿼리에서 이벤트 처리하기</h1>
+	<h1>제이쿼리에서 이벤트 처리하기</h1>
+	<h1>제이쿼리에서 이벤트 처리하기</h1>
+	<h1>제이쿼리에서 이벤트 처리하기</h1>
+	
+	<h2>제이쿼리에서 이벤트 처리하기</h2>
+	<h2>제이쿼리에서 이벤트 처리하기</h2>
+	<h2>제이쿼리에서 이벤트 처리하기</h2>
+	<h2>제이쿼리에서 이벤트 처리하기</h2>
+	<h2>제이쿼리에서 이벤트 처리하기</h2>
+	
+	
+	<input type="button" value="123456"/>
+	<input type="button" value="ABCDEF"/>
+	<input type="button" value="가나다라마바"/>
+</body>
+</html>

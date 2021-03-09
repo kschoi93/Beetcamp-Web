@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	.c1{
+		width:700px;
+		height:100px;
+		line-height:100px;
+		color:rgb(163,73,164);
+		margin:0px 30px;
+		font-weight:bold;
+		font-size:1.9em;
+	}
+
+</style>
+<script>
+var timer;
+var y=0;
+var plus=4;
+var change=0;
+	$(function(){
+		$('body').css('background-color','rgb(241,235,219)').css('margin','0px');
+		$('body').append('<div id="labelDiv"></div>');
+		
+		// 라벨 이미지 149
+		$('#labelDiv').append('<img src="img/label.png"/>').css('width','97px')
+					  .css('height','298px').css('position','absolute')
+					  .css('left','0px').css('top','-149px');
+		$('#labelDiv>img').css('opacity','0.8').css('height','149px;').css('position','absolute');
+		
+		// 메뉴, 이미지
+		$('body').append('<div></div><img/>');
+		$('div:eq(1)').css('width','700px').css('height','100px').css('background-color','rgb(229,222,200)').css('margin','30px auto');
+		$('img:eq(1)').attr('src','img/europe.jpg').css('width','800px').css('height','500px').css('margin','0 auto').css('display','block');
+		var str = ['MENU','ABOUT','WORK','CONTACT'];
+		
+		for(var i=0; i<str.length;i++){
+			$('div:eq(1)').append('<span name="title'+i+'">'+str[i]+'</span>');
+		}
+		// span 눌렀을때 설정
+		$('span').addClass('c1');
+		$('span').css('position','relative')
+
+		
+		$('span').on({mouseenter:function(){
+			var movePosition = $(this).position().left;
+			if(y==0){
+				if($(this).attr('name')=='title0'){
+					$('#labelDiv').css('left',movePosition+26);
+				} else if($(this).attr('name')=='title1'){
+					$('#labelDiv').css('left',movePosition+34);
+				} else if($(this).attr('name')=='title2'){
+					$('#labelDiv').css('left',movePosition+26);
+				} else if($(this).attr('name')=='title3'){
+					$('#labelDiv').css('left',movePosition+52);
+				}
+				timer = setInterval('slider(0)',5);
+			}
+			
+		},mouseleave:function(){
+			if(y==148){
+				{timer = setInterval('slider(1)',5);
+			}
+			}
+		}})
+	})
+	
+	function slider(num){
+		if(num==0){
+			if(y<=144){
+				y = y + plus;
+				$('#labelDiv>img').css('top',y+"px");
+			} else {
+				clearInterval(timer);
+			}
+			console.log(y);
+		} else if(num==1){
+			if(y>=4){
+				y = y - plus;
+				$('#labelDiv>img').css('top',y+'px');
+			} else{
+				clearInterval(timer);
+			}
+			console.log(y);
+		}
+	}
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	#movieList{width:820px;height:114px; border:1px solid gray;margin:0px auto;overflow:hidden;}
+</style>
+<script>
+	$(function(){
+		for(var i=1; i<=20; i++){
+			var tag = "<a href='#'><img src='../postImg/movie"
+			if(i<10){
+				tag +="0"+i;
+			}else{
+				tag += i;
+			}
+			tag += ".png'/></a>";
+			$("#movieList").append(tag);
+		}
+		setInterval('movieMove()',500);
+	});
+	function movieMove(){
+		//포스트 제일앞에 있는 것을 제일뒤로 보내기
+		//    $(내용).appendTo(선택자)
+		
+		$("#movieList>a").first().appendTo('#movieList');
+	}
+</script>
+</head>
+<body>
+<div id="movieList"></div>
+</body>
+</html>
