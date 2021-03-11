@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<style>
+	body{width:800px;margin:0 auto;}
+	ul,li{margin:0px;padding:0px;list-style-type:none;}
+	#title{width:600px;}
+	#content{width:600px;height:400px;}
+	
+</style>
+<script>
+	$(function(){
+		//				textarea태그의 name 속성 또는 id 속성
+		CKEDITOR.replace('content');
+		
+		$("#frm").submit(function(){
+			//				document.getElementById("content").value
+			//var txt = $("#content").val();
+			var txt = CKEDITOR.instances.content.getData();
+			console.log(txt);
+			return false;
+		})
+	})
+</script>
+</head>
+<body>
+<h1>글쓰기</h1>
+<form	method="post" id="frm" action="aaaaa.jsp">
+	<ul>
+		<li>제목</li>
+		<li><input type="text" name="title" id="title"/></li>
+		<li>글내용</li>
+		<li><textarea name="content" id="content"></textarea></li>
+		<li><input type="submit" value="등록"/></li>
+	</ul>
+</form>
+</body>
+</html>

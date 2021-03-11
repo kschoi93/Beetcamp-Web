@@ -1,54 +1,57 @@
+<!--03/09  -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-	.lb{background-color:lightblue;}
-	.pk{background-color:pink;}
+<style> 
+.lb{background-color:lightblue};
+.pk{background-color:pink};
 </style>
 <script>
 	$(function(){
-		//마우스 오바: lightblue, 아웃 : pink
+		//마우스 오버 : lightblue , 아웃:pink
 		var cnt=0;
+	
 		$('h1').hover(function(){
-			cnt++;
-			//오버일때 실행됨
-			$(this).addClass('lb');
-			$(this).removeClass('pk');
-			
-			//이벤트가 5번 발생하면더이상 발생하지 않도록 이벤트를 해제
-			if(cnt>=5){
-				//$('h1').off();
-				$(this).off();
-			}
-		},function(){
-			//아웃일때 실행됨
+		cnt++;
+			//마우스 오버일 때 실행
+		$(this).addClass('lb');	
+		$(this).removeClass('pk');
+
+		//이벤트가 5번 발생하면 이벤트가 더 이상 발생하지 않도록 한다.
+		if(cnt>=5){
+			//$('h1').off();
+			$(this).off(); //이벤트가 방금 발생한 객체의 이벤트를 해제한다.
+		 }
+		}, function(){
+			//마우스 아웃일때 실행됨
 			$(this).addClass('pk');
 			$(this).removeClass('lb');
 		});
-		
-		// 한번만 발생하는 이벤트
-		$("h2").one('click',function(){
-			$(this).addClass('pk');
-			console.log('이벤트 발생');
-		})
-	})
+			
+		//한번만 발생하는 이벤트
+		$('h2').one('click',function(){
+			$(this).addClass('pk'); 
+		}); 
+	});
 </script>
 </head>
 <body>
-<h1>hover이벤트 처리</h1>
-<h1>hover이벤트 처리</h1>
-<h1>hover이벤트 처리</h1>
-<h1>hover이벤트 처리</h1>
-<h1>hover이벤트 처리</h1>
-<h1>hover이벤트 처리</h1>
-<h1>hover이벤트 처리</h1>
-<h1>hover이벤트 처리</h1>
-<h2>one Event Test.........</h2>
-<h2>one Event Test.........</h2>
-<h2>one Event Test.........</h2>
-<h2>one Event Test.........</h2>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h1>hover이벤트 처리</h1>
+	<h2> one Event Test</h2>
+	<h2> one Event Test</h2>
+	<h2> one Event Test</h2>
+	<h2> one Event Test</h2>
+	<h2> one Event Test</h2>
 </body>
 </html>

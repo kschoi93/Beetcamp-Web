@@ -1,0 +1,68 @@
+<!-- 03/10 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	body, ul, li{margin:0; padding:0;}
+	body{
+		background-image:url(../img/noise.png);
+	}
+	.container{
+		background-image:url(../img/bg1.jpg);
+		background-repeat:no-repeat;
+		width:1000px; height:2000px;
+		margin: 0 auto;
+	}
+	.container>img{
+		width:100%;
+	}
+	#topMenu{
+		padding:0px 130px;
+	}
+	#topMenu>li{
+		list-style-type:none;
+		float:left;
+		text-align:center;
+		font-weight:bold;
+		font-size:1.5em;
+		width: 25%;
+		height:149px;
+		line-height:140px;
+		background:url(../img/label.png) no-repeat;
+		background-position:center -149px;
+		transition-duration:1s;
+	}
+	#topMenu a:link, #topMenu a:visited, #topMenu a:active, #topMenu a:hover{
+		text-decoration:none;
+		color:rgb(102,0,102);
+	}
+</style>
+<script>
+	$(function(){
+		var menu = ['MENU','ABOUT','WORK','CONTACT'];
+		//for문처럼 반복해서 위의 배열을 출력 
+		menu.map(function(value, index){ 
+			$('#topMenu').append('<li><a href="#">'+value+'</a></li>'); 
+		});
+		
+		//마우스 오버&아웃 이벤트 
+		$('#topMenu>li').hover(function(){
+			$(this).css('background-position','center 0px');	
+		}, function(){
+			$(this).css('background-position', 'center -149px');			
+		});
+		
+		
+	});
+
+</script>
+</head>
+<body>
+	<div class="container">
+	<ul id="topMenu"> 	</ul>
+	<img src="../img/sea.PNG"></div>
+</body>
+</html>

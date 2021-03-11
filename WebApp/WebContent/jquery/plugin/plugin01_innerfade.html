@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	https://gist.github.com/coolniikou/665255
+	
+	jquery.innerfade.js
+ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="jquery.innerfade.js"></script>
+<style>
+	ul,li{
+		margin:0; padding:0; list-style-type:none;
+	}
+	#innerImg{
+		width:500px; height:350px;
+	}
+	#innerImg img{
+		width:500px; height:350px;
+	}
+	#txt>li{
+		height:150px;border:2px solid green; background:#a111;
+	}
+</style>
+<script>
+	$(function(){
+		$("#inner").innerfade({
+			animationtype: 'slide'// slide,fade(기본),
+			,speed:5000 // 'slow','fast','normal', 밀리초
+			,timeout:5000//쇼 대기시간
+			,type:'random'// 'random','sequence'(기본),random_start
+			,containerheight:'auto'
+		});
+		
+		$("#txt").innerfade({
+			speed:3000
+			,timeout:3000
+			,type:'random_start'
+		});
+	});
+</script>
+</head>
+<body>
+<div id="innerImg">
+	<ul id="inner">
+		<li><a href="https://www.nate.com"><img src="../../img/1.jpg"/></a></li>
+		<li><a href="https://www.naver.com"><img src="../../img/2.jpg"/></a></li>		
+		<li><a href="https://www.daum.net"><img src="../../img/3.jpg"/></a></li>
+		<li><a href="#"><img src="../../img/4.jpg"/></a></li>
+		<li><a href="#"><img src="../../img/5.jpg"/></a></li>
+	</ul>
+</div>
+<div id="innerText">
+	<ul id="txt">
+		<li>
+		영국은 아스트라제네카 백신을 맞은 70대 이상 고령층에서 입원 예방 효과가 70% 수준으로 나타났고,
+		스코틀랜드에서는 무려 94%에 달해 화이자 백신보다 10% 가까이 높게 나왔습니다.
+		</li>
+		<li>
+		1국내 65살 이상 고령층은 800만 명이 넘습니다.
+		이들 가운데 요양병원과 요양시설에 있는 고위험군인 65살 이상 입소자와 종사자 등 37만여 명은 이달 접종을 시
+		</li>
+		<li>
+		2국내 65살 이상 고령층은 800만 명이 넘습니다.
+		이들 가운데 요양병원과 요양시설에 있는 고위험군인 65살 이상 입소자와 종사자 등 37만여 명은 이달 접종을 시
+		</li>
+		<li>
+		3국내 65살 이상 고령층은 800만 명이 넘습니다.
+		이들 가운데 요양병원과 요양시설에 있는 고위험군인 65살 이상 입소자와 종사자 등 37만여 명은 이달 접종을 시
+		</li>
+		<li>
+		4국내 65살 이상 고령층은 800만 명이 넘습니다.
+		이들 가운데 요양병원과 요양시설에 있는 고위험군인 65살 이상 입소자와 종사자 등 37만여 명은 이달 접종을 시
+		</li>
+		<li>
+		5국내 65살 이상 고령층은 800만 명이 넘습니다.
+		이들 가운데 요양병원과 요양시설에 있는 고위험군인 65살 이상 입소자와 종사자 등 37만여 명은 이달 접종을 시
+		</li>
+	</ul>
+</div>
+</body>
+</html>

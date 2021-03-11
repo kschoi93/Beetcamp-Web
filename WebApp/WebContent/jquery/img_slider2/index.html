@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../lib/jquery-ui.min.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../lib/jquery-ui.min.js"></script>
+<script>
+	$(function(){
+		$('body').append('<div>이미지 슬라이드</div>');
+		$('body>div').css('width','800px').css('font-size','2em').css('overflow','visible').css('border','1px solid black');
+		$('body>div').append('<div></div>');
+		$('body>div>div').css('width','700px').css('height','400px').css('overflow','hidden');
+		
+		var tag ="";
+		for(var i=1; i<=5;i++){
+			tag += '<img src="img/'+i+'.jpg"/>';
+		}
+		$('body>div>div').append(tag);
+		
+		var ran = Math.random()*5+1;
+		console.log(parseInt(ran));
+		
+		$('img').css('width','700px').css('height','400px').css('position','relative').css('z-index','300');
+		
+		$('body>div>div').append('<img src="img/point_button.png" id="buttonImg"/>');
+		$('#buttonImg').css('position','absolute').css('z-index','400').css('top','400px').css('transform','rotate(90deg)').css('left','300px');
+		
+	});
+</script>
+<style>
+	
+</style>
+</head>
+<body>
+
+</body>
+</html>

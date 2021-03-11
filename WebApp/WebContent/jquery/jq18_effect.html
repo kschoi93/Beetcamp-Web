@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	.container{width:800px;margin:0 auto;}
+	.container>img{
+		width:100%;
+		border:2px red solid;
+		margin:10px;	
+	}
+	
+</style>
+<script>
+	$(function(){
+		//effect : 효과
+		$(".container>input").click(function(){
+			var index = $(".container>input").index(this) // .container>input 기준으로 index를 형성
+			if(index==0){
+				// 사라지는 시간 : 'slow','fast','normal', 밀리초
+				$("img:first").hide('slow');
+			} else if(index==1){
+				$("img").first().show(3000);
+			} else if(index==2){
+				$("img").first().toggle(2000);
+			} else if(index==3){
+				//							콜백함수 <--- 작업이 처리 후 자동호출되는 함수
+				$('img:first').fadeOut(3000,function(){
+					alert("점점흐리게가 처리됨...");
+				});
+			} else if(index==4){
+				$("img:first").fadeIn(3000);
+			} else if(index==5){
+				$("img:first").fadeToggle(2000);
+			} else if(index==6){
+				$("img").first().slideUp(5000);
+			} else if(index==7){
+				$("img").first().slideDown(3000);
+			} else if(index==8){
+				$("img").first().slideToggle(2000);
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<div class="container">
+<input type="button" value="hide()숨기기"/>
+<input type="button" value="show()보여주기"/>
+<input type="button" value="toggle()숨기기/보여주기"/>
+<input type="button" value="fadeOut()점점흐리게"/>
+<input type="button" value="fadeIn()점점진하게"/>
+<input type="button" value="fadeToggle()점점 흐리게/진하게"/>
+<input type="button" value="slideUp()블라인드"/>
+<input type="button" value="slideDown()블라인드"/>
+<input type="button" value="slideToggle()블라인드 토글"/>
+<hr/>
+<img src="../img/1.jpg"/>
+<img src="../img/2.jpg"/>
+</div>
+</body>
+</html>

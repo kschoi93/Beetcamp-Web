@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="lib/jquery-ui.min.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<!-- 
+	https://jqueryui.com/
+	순서
+	1. jquery-ui.min.css
+	2. jquery
+	3. jquery-ui.min.js
+ -->
+ <style>
+ 	img{width:100px; height:100px; position:absolute;}
+ </style>
+ <script>
+ 	$(function(){
+ 		//											easing
+ 		$('img').animate({marginLeft:'1200px'},5000,'easeOutBounce', function(){});
+ 	});
+ </script>
+</head>
+<body>
+<img src="../img/1.jpg"/>
+</body>
+</html>

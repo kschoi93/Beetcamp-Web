@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	.container{
+		width:1000px; margin:0 auto;background:#eee;
+	}
+	
+	#banner{
+		width:600px;
+		height:500px;
+		border:2px solid red;
+		position:relative;
+		overflow:hidden;
+	}
+	#banner>div:first-child{
+		width:3600px; height:500px; position:relative;
+	}
+	#banner>div>img{width:600px;height:500px;}
+	/*텍스트 설명*/
+	#slideText{
+		width:400px;
+		height:300px;
+		position:absolute;
+		left:-450px;
+		top:100px;
+	}
+	#slideText>div{
+		position:absolute;
+		left:0px;
+		top:0px;
+		color:red;
+		width:400px;
+	}
+	/*컨트롤러*/
+	#controller{
+		position:absolute;
+		left:200px;
+		top:450px;
+	}
+	#controller>div{
+		width:15px;
+		height:15px;
+		background-image:url(img/point_button.png);
+		float:left;
+		margin:0 10px;
+	}
+	
+	.blueIcon{
+		background-position:0px -30px;
+	}
+	
+	.grayIcon{
+		background-position:0px -15px;
+	}
+	
+</style>
+<script>
+	$(function(){
+		//함수 - 이미지, 컨트롤러, 텍스트 이동
+		function slideMove(idx){
+			var left = -(idx*600);
+			$("#banner>div").first().animate({marginLeft:left+"px"},2000);
+			
+			//기존 설명서 숨기기
+			$("#slideText>div").css("margin-left","0px");
+			//텍스트 설명서 보여주기
+			$("#slideText>div").eq(idx).delay(1000).animate({marginLeft:"550px"},2000);
+			
+			//컨트롤러
+			$("#controller>div").removeClass('blueIcon');//기존선택된 컨트롤 지우기
+			$("#controller>div").eq(idx).addClass('blueIcon');//지금선택된 컨트롤 표시하기
+			
+		}
+		//컨트롤러 이벤트 처리
+		//1. 마우스 이벤트
+		$('#controller>div').hover(function(){
+			$(this).addClass('grayIcon');
+		},function(){
+			$(this).removeClass('grayIcon');
+		});
+		//2. 컨트롤러 클릭이벤트
+		$('#controller>div').click(function(){
+			//컨트롤러 위치 인덱스
+			var i = $("#controller>div").index(this);
+			
+			slideMove(i);
+			
+		})
+		
+		//난수 생성 -> 0~5		0.0 ~ 1.0 사이 정수화(큰-작+1) +작 
+		var ran = parseInt(Math.random()*5);
+		slideMove(ran);
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<h1>이미지 슬라이드</h1>
+	<div id="banner">
+		<div id="lst"><img src="img/1.jpg"/><img src="img/2.jpg"/><img src="img/3.jpg"/><img src="img/4.jpg"/><img src="img/5.jpg"/></div>
+			<!-- 텍스트 설명 -->
+			<div id="slideText">
+				<div>
+					<h1>첫번째 슬라이드 제목</h1>
+					<h2>첫번째 슬라이드 설명</h2>
+					<p> 첫번째 슬라이드 이다.</p>
+				</div>
+				<div>
+					<h1>두번째 슬라이드 제목</h1>
+					<h2>두번째 슬라이드 설명</h2>
+					<p> 두번째 슬라이드 이다.</p>
+				</div>
+				<div>
+					<h1>세번째 슬라이드 제목</h1>
+					<h2>세번째 슬라이드 설명</h2>
+					<p> 세번째 슬라이드 이다.</p>
+				</div>
+				<div>
+					<h1>네번째 슬라이드 제목</h1>
+					<h2>네번째 슬라이드 설명</h2>
+					<p> 네번째 슬라이드 이다.</p>
+				</div>
+				<div>
+					<h1>다섯번째 슬라이드 제목</h1>
+					<h2>다섯번째 슬라이드 설명</h2>
+					<p> 다섯번째 슬라이드 이다.</p>
+				</div>
+			</div><!-- 텍스트 설명 -->
+			<div id="controller">
+				<div></div><div></div><div></div><div></div><div></div>
+			</div>
+	</div>
+
+</div>
+</body>
+</html>

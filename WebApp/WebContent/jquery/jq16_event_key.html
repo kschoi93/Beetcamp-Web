@@ -1,0 +1,31 @@
+<!-- 03/10 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+#reply{
+	width:400px; height:100px;
+}
+</style>
+<script>
+
+//상품평 쓰기 등에 이용
+	$(function(){
+		//onkeydown, onkeyup, onkeypress, onkeyrelease
+		$("#reply").keyup(function(){
+			//현재 입력된 글자수를 구해서 100글자에서 빼서 표시한다
+			var txtCount = 100 - $("#reply").val().length;
+			$('span').text(txtCount);
+		});
+		
+	});
+</script>
+</head>
+<body>
+ 	<div>남은 문자수 : <span>100</span></div>
+ 	<textarea id="reply" maxlength="100"></textarea>
+</body>
+</html>

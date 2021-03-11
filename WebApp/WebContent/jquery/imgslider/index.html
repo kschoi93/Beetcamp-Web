@@ -44,8 +44,9 @@ var change=0;
 		$('span').addClass('c1');
 		$('span').css('position','relative')
 
-		
+		// 마우스가 올라갔을때, 마우스가 나왔을때
 		$('span').on({mouseenter:function(){
+			// label의 left 위치를 설정
 			var movePosition = $(this).position().left;
 			if(y==0){
 				if($(this).attr('name')=='title0'){
@@ -67,7 +68,7 @@ var change=0;
 			}
 		}})
 	})
-	
+	// slider의 setInterval 메소드
 	function slider(num){
 		if(num==0){
 			if(y<=144){
