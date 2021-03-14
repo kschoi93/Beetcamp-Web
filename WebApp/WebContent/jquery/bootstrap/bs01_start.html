@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	bootstrap -> 클래스로 형성
+	> 부트스트랩은 웹사이트를 쉽게 만들 수 있게 도와주는 HTML, CSS, JS 프레임워크이다. 
+	> 하나의 CSS로 휴대폰, 태블릿, 데스크탑까지 다양한 기기에서 작동한다. 
+	> 다양한 기능을 제공하여 사용자가 쉽게 웹사이트를 제작, 유지, 보수할 수 있도록 도와준다
+	
+	1. viewport 설정 , bootstrap은 반드시 viewport를 설정해야 한다.
+		* viewport = 화면 크기변화에 따른 다른 적용을 가진다.
+	2. bootstrap 스타일 시트
+	3. jquery 스크립트
+	4. bootstrap 스크립트
+	
+	https://getbootstrap.com/docs/5.0/getting-started/download/
+	
+ -->
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+<style>
+	/*bootstrap의 container클래스를 다시 설정*/
+	.container{
+		background-color:pink;
+	}
+	.container-fluid{
+		background-color:lightblue;
+	}
+	img{width:500px;}
+</style>
+</head>
+<body>
+<!-- 
+	.container : 반응형 폭 설정 하는 클래스
+	.container-fluid : 폭을 100%;
+ -->
+<div class="container">
+<img src="../img/1.jpg"/>
+</div>
+<div class="container-fluid">
+<img src="../img/2.jpg"/>
+</div>
+</body>
+</html>

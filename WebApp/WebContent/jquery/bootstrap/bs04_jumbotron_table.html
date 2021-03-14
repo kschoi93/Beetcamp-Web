@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+<style>
+	.jumbotron{
+		padding:20px 10px;
+	}
+</style>
+</head>
+<body>
+<div class="container">
+	<!-- .jumbotron : padding, 둥근사각형, 회색배경이 설정된 클래스 -->
+	<div class="jumbotron">
+	"김태년 원내대표 답 기다리겠다" 박영선 더불어민주당 서울시장 후보는 12일 
+	민주당에 한국토지주택공사(LH) 투기 사태 관련 특검 도입을 건의했다고 밝혔다.
+	</div>
+	<!-- 
+		.table : 표에 적용된 line을 표시한다.
+		.table table-striped : 줄단위 배경색(기본회색)
+		.table table-bordered : 표에 선을 표시한다.
+		.table table-hover : 마우스 오버 아웃시 배경색 변경
+		.table table-dark : 표의 배경을 블랙으로
+	 -->
+	<table class="table table-striped table-bordered 
+				  table-hover table-dark">
+		<tr>
+			<td>번호</td>
+			<td>이름</td>
+			<td>연락처</td>
+		</tr>
+		<tr>
+			<td>100</td>
+			<td>홍길동</td>
+			<td>010-0000-0000</td>
+		</tr>
+				<tr>
+			<td>200</td>
+			<td>세종대왕</td>
+			<td>010-1111-1111</td>
+		</tr>
+				<tr>
+			<td>300</td>
+			<td>권율</td>
+			<td>010-2222-2222</td>
+		</tr>
+				<tr>
+			<td>400</td>
+			<td>장보고</td>
+			<td>010-3333-3333</td>
+		</tr>
+				<tr>
+			<td>500</td>
+			<td>이산</td>
+			<td>010-4444-4444</td>
+		</tr>
+		<tr>
+			<td colspan='3'>문의사항은 02-1234-5678로 연락바랍니다.</td>
+		</tr>
+	</table>
+	<!-- 
+		테이블에 배경색 설정하기
+		.table-primary : blue색
+		.table-success : green색
+		.table-danger : red색
+		.table-info : blue색
+		.table-warning : yellow색
+		.table-active : gray색
+		.table-secondary : gray색
+	 -->
+	<table class="table">
+		<tr class="table-primary">
+			<td>번호</td>
+			<td>이름</td>
+			<td>연락처</td>
+		</tr>
+		<tr class="table-success">
+			<td>100</td>
+			<td>홍길동</td>
+			<td>010-0000-0000</td>
+		</tr>
+		<tr class="table-danger">
+			<td>200</td>
+			<td>세종대왕</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr class="table-info">
+			<td>300</td>
+			<td>권율</td>
+			<td>010-2222-2222</td>
+		</tr>
+		<tr class="table-active">
+			<td>400</td>
+			<td>장보고</td>
+			<td>010-3333-3333</td>
+		</tr>
+		<tr class="table-secondary">
+			<td>500</td>
+			<td>이산</td>
+			<td>010-4444-4444</td>
+		</tr>
+		<tr>
+			<td class="table-warning" colspan='3'>문의사항은 02-1234-5678로 연락바랍니다.</td>
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

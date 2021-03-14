@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	dialog, datepicker
+	
+	1. jquery-ui 스타일
+	2. jquery 스크립트
+	3. jquery ui 스크립트
+ -->
+ <link rel="stylesheet" href="../lib/jquery-ui.min.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../lib/jquery-ui.min.js"></script>
+<style>
+	body{width:1000px; margin:0 auto;}
+	#dialogOpen{
+		font-size:1.5em;
+		background-color:pink;
+		text-align:center;
+	}
+	#schedule{
+		background-color:lightblue;
+		font-size:1.2em;
+		text-align:center;
+	}
+	h1{
+		text-align:center;
+		font-size:1.5em;
+	}
+	ui
+	#event-name, #event-date{width:95%}
+</style>
+<script>
+	$(function(){
+		//다이어로그 창 띄우기
+		$('#dialogOpen').click(function(){
+			$('#dialog').dialog('open');// dialog()
+			
+		})
+		
+		//다이얼로그 플러그인 셋팅
+		$("#dialog").dialog({
+			autoOpen : false// true, false : 실행할때 자동으로 다이어로그가  열리는지 여부
+			, buttons:{
+				submit:function(){
+					var name = $("#event-name").val();
+					var date = $('#event-date').val();
+					
+					$('#schedule').append("<p>"+date+" : "+ name+"</p>");
+					
+					//일정 지우기
+					$("#event-name").val("");
+					$("#event-date").val("");
+				},
+				reset:function(){
+					//일정 지우기
+					$("#event-name").val("");
+					$("#event-date").val("");
+				},
+				close:function(){
+					//일정 지우기
+					$("#event-name").val("");
+					$("#event-date").val("");
+					$("#dialog").dialog('close');
+				}
+			}, modal : true // 모달 사용여부, 화면 사용못하게 막을거냐 말거냐
+		});
+		
+		// event-date의 DatePicker설정
+		$("#event-date").datepicker({
+			dateFormat : 'yy년 mm월 dd일' // yy : 연도 4자리 모두 표시됨, 날짜 표시 형식
+			,numberOfMonths : 2 // 한번에 보일 개월수
+		});
+	});
+</script>
+</head>
+<body>
+<div id="dialogOpen">일정등록</div>
+<hr/>
+<div id="schedule">일정이 표시되는 곳</div>
+<!-- 다이어로그 -->
+<div id="dialog" title="Dialog & DatePicker"><!--  다이어로그 창의 제목으로 사용됨 -->
+	<h1>일정을 등록하세요..</h1>
+	<label for="event-name">일정이름 : </label> <input type="text" id="event-name"/><br/>
+	<label for="event-name">날짜선택 : </label> <input type="text" id="event-date"/>
+	<hr/>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	bxslider
+	https://github.com/stevenwanderski/bxslider-4
+	download -> bxslider-4-master -> src 폴더 / vender, js, css, images
+
+	* 참고 : script의 링크를 걸 때 순서도 중요하다!!
+	1.jquery
+	2.easing
+	3.bxslider 스크립트
+	4.bxslider 스타일시트
+	5.images 폴더 복사
+ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="jquery.easing.1.3.js"></script>
+<script src="jquery.bxslider.js"></script>
+<link rel="stylesheet" href="jquery.bxslider.css" type="text/css"/>
+<style>
+.container{width:800px;margin:0 auto;}
+#slider img{width:100%; height:350px;}
+ul,li{margin:0px;padding:0px;list-style:none;}
+</style>
+<script>
+	$(function(){
+		$('#slider').bxSlider({
+			mode:'horizontal' // 'horizontal', 'vertical', 'fade'
+			,sliderWidth:800
+			//,sliderHegith:350
+			//,speed:200 // default : 500
+			,auto:true//자동시작 : true false
+			//,randomStart:true // 시작을 랜덤으로 : true, false
+			,captions:true // 설명을 표시한다 : true, false img태그의 타이틀 내용을 설명으로 표시한다.
+			//,ticker : true // 자막처럼...
+			,infiniteLoop : false//반복여부 true(기본)/false
+			//,adaptiveHeight : true // 이미지 크기에 따라 높이 자동 조절
+			,hideControlOnEnd : true // 컨트롤 버튼 처음과 끝을 표시할지 여부 infinitloop가 false 일때 가능
+			
+			//easing
+			,useCSS:false // easing 사용여부(true:easing 사용안함,false:easing 사용함)
+			,easing:'easeOutElastic'
+			,onSliderLoad : function(){//슬라이드가 로딩이 완료되면 호출되는 함수
+				console.log("onSliderLoad실핼됨");
+			}
+			,onSlideAfter : function(){//슬라이드가 움직이고 나면 호출되는 함수
+				console.log("슬라이드가 이동하였습니다......");
+			}
+		});
+		
+	})
+</script>
+</head>
+<body>
+<div class="container">
+	<ul id="slider">
+		<li><a href="https://www.nate.com"><img src="../../img/1.jpg" title="첫번째 이미지 설명.."/></a></li>
+		<li><a href="https://www.naver.com"><img src="../../img/2.jpg" title="두번째 이미지 설명.."/></a></li>		
+		<li><a href="https://www.daum.net"><img src="../../img/3.jpg" title="세번째 이미지 설명.."/></a></li>
+		<li><a href="#"><img src="../../img/4.jpg" title="네번째 이미지 설명.."/></a></li>
+		<li><a href="#"><img src="../../img/5.jpg" title="다섯번째 이미지 설명.."/></a></li>
+	</ul>
+</div>
+</body>
+</html>
