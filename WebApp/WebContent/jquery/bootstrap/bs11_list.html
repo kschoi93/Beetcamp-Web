@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script>
+	$(function(){
+		$('#container>div').eq(0).children('a').addClass('list-group-item');
+		
+		$('#container>div:last').addClass("list-group");
+		$('#container>div:last>div').addClass("list-group-item");
+	});
+</script>
+</head>
+<body>
+	<div id="container">
+		<!-- 
+			ul로 목록만들기 
+			list-group : padding,margin, style을 제거한다
+			list group-item : 한줄로 엮는다.	
+		-->
+		<ul class="list-group">
+			<li class="list-group-item">ul 테스트1</li>
+			<li class="list-group-item list-group-item-secondary">ul 테스트2</li>
+			<li class="list-group-item">ul 테스트3</li>
+			<li class="list-group-item">ul 테스트4</li>
+		</ul>
+		<hr/>
+		<!-- a태그로 목록만들기 -->
+		<div class="list-group">
+			<a href="#">a 테스트1</a>
+			<a href="#">a 테스트2</a>
+			<a href="#"">a 테스트3</a>
+			<a href="#">a 테스트4
+				<h1>a 테스트4 h1</h1>
+				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></a>
+		</div>
+		<hr/>
+		<!-- div태그로 목록 만들기 -->
+		<div>
+			<div>div 테스트1</div>
+			<div>div 테스트2</div>
+			<div>div 테스트3</div>
+			<div>div 테스트4</div>
+		</div>
+	</div>
+</body>
+</html>

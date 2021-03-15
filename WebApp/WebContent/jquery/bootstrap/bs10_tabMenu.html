@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+<style>
+	img{width:300px;height:300px;}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>탭메뉴</h1>
+		<!-- 
+			tab menu
+			1.a tag href 설정
+			2. ul class=nav 설정
+			3. li class=nav-item 설정
+			4. a class=nav-link 설정
+			5. div class=tab-content 설정
+			6. div class="tab-pane" 설정
+			7. data-toggle="tab" 설정
+			
+		 -->
+		<!-- 탭메뉴 -->
+		<ul class="nav nav-tabs">
+			<li class="nav-item"><a href="#t1" class="nav-link" data-toggle="tab">메뉴1</a></li>
+			<li class="nav-item"><a href="#t2" class="nav-link" data-toggle="tab">메뉴2</a></li>
+			<li class="nav-item"><a href="#t3" class="nav-link active" data-toggle="tab">메뉴3</a></li>
+			<li class="nav-item"><a href="#t4" class="nav-link" data-toggle="tab">메뉴4</a></li>
+		</ul>
+		<!-- 탭메뉴 컨텐츠 -->
+		<div class="tab-content">
+			<div id="t1" class="tab-pane">
+				첫번째 탭 메뉴<br/>
+				<img src="../img/1.jpg"/>
+			</div>
+			<div id="t2" class="tab-pane">
+				두번째 탭 메뉴<br/>
+				<img src="../img/2.jpg"/>
+			</div>
+			<div id="t3" class="tab-pane active">
+				세번째 탭 메뉴<br/>
+				<img src="../img/3.jpg"/>
+			</div>
+			<div id="t4" class="tab-pane">
+				네번째 탭 메뉴<br/>
+				<img src="../img/4.jpg"/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

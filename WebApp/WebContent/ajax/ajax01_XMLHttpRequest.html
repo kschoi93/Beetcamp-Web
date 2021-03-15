@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<style>
+	#result{
+		width:100%;
+		height:500px;
+		background:#ddd;
+	}
+</style>
+<script>
+	//ajax는 비동기식으로 서버와 통신하는 자바스크립트 라이브러리다
+	//ajax를 이용하면 비동기식으로 서버로 데이터를 보내거나 받을 수 있다.
+	function loadAjax(){
+		//javascript를 이용한 ajax 구현하기
+		
+		// 1. 객체생성
+		var xhttp = new XMLHttpRequest(); // 웹서버에 데이터를 요청하는 객체
+		// 2. ajax 이벤트처리
+		xhttp.onreadystatechange = function(){
+			/*
+				readyState : XMLHttpRequest의 처리 상태를 가지고 있음
+							 0 : 초기화실패, 1:서버와 연결, 2: 요청이접수, 3: 처리요청, 4: 요청이 완료됨
+				status :요청처리 번호를 가지고 있다.
+						200:정상처리, 403:금지된것, 404:찾을수 없다
+				responseText : 실행결과 값, 서버에서 받아온 내용을 가지는 변수
+			*/
+			if(this.readyState==4 && this.status==200){//정상 전송이 완료된경우
+					document.getElementById('result').value = this.responseText;
+				
+			}
+		}
+		// 3. 객체 열기
+        //전송방식(get,post) 			가져올 파일명 		동기식(false), 비동기식(true)
+		xhttp.open('GET',   'Calculator.java',		true);
+		xhttp.send();//서버에 데이터 요청 - 실제 서버에 접속
+        
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<h1>자바스크립트를 이용한 AJAX 테스트</h1>
+		<button onclick="loadAjax();">버튼을 클릭하면 서버에 접속하여 비동기식으로 데이터를 가져온다.</button>
+		<hr/>
+		<textarea id="result"></textarea>
+		
+	</div>
+</body>
+</html>

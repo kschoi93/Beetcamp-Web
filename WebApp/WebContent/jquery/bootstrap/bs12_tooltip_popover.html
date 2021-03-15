@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="lib/bootstrap.js"></script>
+<script>
+	$(function(){
+		//툴팁 기능이 적용되기 위해서는 tooltip() 함수를 호출하여야 한다.
+		// 		속성 선택자
+		$('[data-toggle=tooltip]').tooltip();
+		
+		//팝오버 기능 적용시 popover()함수 호출
+		$('[data-toggle=popover]').popover();
+	})
+</script>
+</head>
+<body>
+<div class="container">
+	<!-- 
+		poper.min.js가 있어야 한다.
+		poper : 버튼의 서브메뉴
+		
+		.tooltip : 풍선도움말
+		data-placement : 툴팁이 표시되는 위치(top,right,bottom.left)
+	 -->
+	 <div>
+	 	<img src="../img/3.jpg"/>
+	 </div>
+	 <h1 title="tooltip풍선도움말" data-toggle="tooltip" data-placement="left">풍선도움말 : tooltip 실행하기</h1>
+	 <div title="audi" data-toggle="tooltip" data-placement="bottom">
+	 	testestestestestestestestestestestestestestestest
+	 </div>
+	 
+	 <!-- 
+	 	popover : 풍선도움말(제목:content)
+	 	
+	 	title : 팝오버의 제목
+	 	data-content : 팝오버의 내용
+	 	data-placement : 위치 지정
+	 	data-toggle: 팝오버 토글
+	 	data-trigger="hover" : 마우스 오버시 팝오버 보이기
+	  -->
+	  <div class="list-group">
+	  	<a href="#" class="list-group-item" title="테스트" data-content="테스트 콘텐츠" data-placement="top" data-toggle="popover" data-trigger="hover">testestesteste</a>
+	  	<a href="#" class="list-group-item" title="테스트2" data-content="테스트2 콘텐츠" data-placement="right" data-toggle="popover" data-trigger="hover">stestestestest</a>
+	  	<a href="#" class="list-group-item" title="테스트3" data-content="테스트3 콘텐츠" data-placement="bottom" data-toggle="popover">estestestes</a>
+	  	<a href="#" class="list-group-item" title="테스트4" data-content="테스트4 콘텐츠" data-placement="left" data-toggle="popover">testestest</a>
+	  </div>
+</div>
+</body>
+</html>

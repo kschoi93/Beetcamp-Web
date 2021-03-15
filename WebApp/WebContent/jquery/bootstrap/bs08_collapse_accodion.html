@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1>collapse</h1>
+	<!-- 
+		버튼 선택하면 컨텐츠 보였다가 안보였다가 할 수 있는 기능 만들기
+		collapse
+		1. target이 될 tag에 id부여
+		2. button에 data-target 지정
+		3. button에 data toggle = collapse 지정
+		4. target id, class = collapse 부여
+		5. class = show 보이는 상태로 시작
+	-->
+	<button class="btn btn-info" data-target="#view1" data-toggle="collapse">클릭하세요</button>
+	<div id="view1" class="collapse show">
+		<img src="../img/1.jpg" width="300px"/>
+	</div>
+	<hr/>
+	<button class="btn btn-secondary" data-target="#view2" data-toggle="collapse">내용보기/내용닫기</button>
+	<div id="view2" class="collapse show">
+		다국적 제약사 아스트라제네카의 코로나19 백신 접종 후 발생한 사망 사고를 이유로 유럽국가들이 잇따라 잠정적인 '사용 중단'을 발표했습니다.
+		사망으로 이어진 '혈전 생성'이 해당 백신 접종 때문이라는 증거는 없지만 이같이 결정하는 국가가 늘면서 혼란이 가중되는 모습입니다.
+	</div>
+	<h1>accordion</h1>
+	<!-- 
+		accodion
+		1.제목라인
+		2.콘텐츠 라인을
+		collapse + class="card" +data-parent="#accordion" 추가
+		하나로 묶는다. 
+	-->
+	<div id="accordion">
+		<div class="card">
+			<div class="card-header card-link" data-target="#v1" data-toggle="collapse" data-parent="#accordion">아코디온 적용예제</div>
+			<div id="v1" class="collapse show">
+				다국적 제약사 아스트라제네카의 코로나19 백신 접종 후 발생한 사망 사고를 이유로 유럽국가들이 잇따라 잠정적인 '사용 중단'을 발표했습니다.
+				사망으로 이어진 '혈전 생성'이 해당 백신 접종 때문이라는 증거는 없지만 이같이 결정하는 국가가 늘면서 혼란이 가중되는 모습입니다.
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header card-link" data-target="#v2" data-toggle="collapse" data-parent="#accordion">아코디온 적용예제</div>
+			<div id="v2" class="collapse show">
+				<img src="../img/2.jpg" width="300px"/>	
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header card-link" data-target="#v3" data-toggle="collapse" data-parent="#accordion">아코디온 적용예제</div>
+			<div id="v3" class="collapse show">
+				사망으로 이어진 '혈전 생성'이 해당 백신 접종 때문이라는 증거는 없지만 이같이 결정하는 국가가 늘면서 혼란이 가중되는 모습입니다.
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

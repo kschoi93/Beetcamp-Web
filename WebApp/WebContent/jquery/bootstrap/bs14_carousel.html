@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+<style>
+	img{
+		width:100%;height:300px;
+	}
+</style>
+</head>
+<body>
+	<!--  -->
+	<div class="container">
+		<h1>이미지 슬라이드</h1>
+		<div id="imgSlide" class="carousel slide" data-ride="carousel" data-interval="1000">
+			<!-- 컨트롤러(하단) -->
+			<ul class="carousel-indicators">
+				<li data-target="#imgSlide" data-slide-to="0" class="active"></li>
+				<li data-target="#imgSlide" data-slide-to="1"></li>
+				<li data-target="#imgSlide" data-slide-to="2"></li>
+			</ul>
+			<!--  슬라이드 이미지 -->
+			<div class="carousel-inner">
+				<!-- 1개의 배너 -->
+				<div class="carousel-item active">
+					<img src="../img/1.jpg"/>
+					<!-- 이미지 위에 설명 쓰기 -->
+					<div class="carousel-caption">
+						<h2>첫번째 슬라이드 이미지</h2>
+						<p>첫번째 슬라이드 이미지 설명</p>
+					</div>
+				</div>
+				
+				
+				<!-- 2개의 배너 -->
+				<div class="carousel-item">
+					<img src="../img/2.jpg"/>
+					<!-- 이미지 위에 설명 쓰기 -->
+					<div class="carousel-caption">
+						<h2>두번째 슬라이드 이미지</h2>
+						<p>두번째 슬라이드 이미지 설명</p>
+					</div>
+				</div>
+				
+				
+				<!-- 3개의 배너 -->
+				<div class="carousel-item">
+					<img src="../img/3.jpg"/>
+					<!-- 이미지 위에 설명 쓰기 -->
+					<div class="carousel-caption">
+						<h2>세번째 슬라이드 이미지</h2>
+						<p>세번째 슬라이드 이미지 설명</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 컨트롤러 	(좌우이동) -->
+		<a href="#imgSlide" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+		<a href="#imgSlide" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+	</div>
+</body>
+</html>
