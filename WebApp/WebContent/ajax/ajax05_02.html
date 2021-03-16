@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<style>
+	/*#newList li{overflow:auto;}*/
+	#newList img{width:50px;height:50px;}
+</style>
+<script>
+	$(function(){
+		$.ajax({
+			url:'rss.xml',
+			dataType:'xml',
+			success:function(result){
+				$(result).find('item').each(function(){
+					var title = $(this).find('title').text(); // 제목
+					var author = $(this).find('author').text();  // 작성자
+					var pubDate = $(this).find('pubDate').text(); // 작성일 2020-10-09 12:05
+					
+					var date = new Date(pubDate);
+					var y = date.getFullYear();
+					var m = zeroAdd(date.getMonth()+1); // 1 ~ 12
+					var d = zeroAdd(date.getDate());
+					var h = zeroAdd(date.getHours());
+					var mi = zeroAdd(date.getMinutes());
+					
+					var href = $(this).find('link').text();
+					var content = $(this).find('description').text();
+					var src = $(this).find('comments').text();
+					
+					$("#newsList").append("<li><a href='"+href+"'>"+title+"("+author+", "+y+"-"+m+'-'+d+" "+h+":"+mi+")</a><br/><img src='"+src+"' align='left'/>"+content+"</li>");
+				});
+				
+			},error:function(){
+				
+			}
+		});
+		
+		function zeroAdd(num){
+			if(num<10){
+				return "0"+num;
+			} else {
+				return num;
+			}
+		}
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<ol id="newsList"></ol>
+</div>
+
+</body>
+</html>
