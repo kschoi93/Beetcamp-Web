@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 폼</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel ="stylesheet" href="login.css" type="text/css">
+<script>
+	$(function(){
+		$("#logFrm").submit(function(){
+			if($("#userid").val() == ""){
+				alert("아이디를 입력하세요");
+				return false;
+			}
+			if($("#userpwd").val() == ""){
+				alert("비밀번호를 입력하세요");
+				return false;
+			}
+			return true;
+		})
+	})
+</script>
+</head>
+<body>
+<div id="main">
+	<!-- 로고 -->
+	<div id="top_logo">
+		<img src="daum.JPG">
+	</div>
+	<!-- 로그인폼, 배너 -->
+	<div id="login_form">
+		<div id = "login">
+			<form method="post" id="logFrm" action="loginOk.jsp"> <!-- action으로 어디로 이동할지 지정한다 -->
+			<input type="text" class="form_input form" name="userid" id="userid" placeholder="아이디입력">
+			<input type="password" class="form_input form" name="userpwd" id="userpwd" placeholder="비밀번호입력">
+			<!-- <input type="button" value="로그인"> -->
+			<input type="submit" class="form_com form sub" value="로그인">
+			<div id="state">
+				<span>
+					<input type="checkbox" name="logstate" value="no">로그인 상태 유지
+				</span>
+				<span style="float:right">
+					<a href="#">보안</a>
+					<a href="#">on</a>
+				</span>
+			</div>
+			<div id="check">
+				<a href="#">아이디 찾기</a> |
+				<a href="#">비밀번호 찾기</a>
+			</div>
+			</form>
+		</div>
+		<a href="#"><img src="daum3.JPG" id="banner"></a>
+	</div>
+	<div id = "bottom">
+		© Kakao Corp. | 고객센터
+	</div>
+</div>
+</body>
+</html>

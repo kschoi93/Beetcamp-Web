@@ -9,7 +9,7 @@
 <script>
 	$(function(){
 		$('frm').submit(function(){
-			if($('username')){
+			if($('username').val()==""){
 				alert("이름을 입력하세요");
 				return false;
 			} 
@@ -26,7 +26,7 @@
 		주소 : <input type="text" name="addr" id="addr"/><br/>
 		성별 : <input type="radio" name="gender" value="M" checked/>남
 		      <input type="radio" name="gender" value="F"/>여<br/>
-        관심분야 : <input type="checkbox" name="hobby" value=""/>농구
+        관심분야 : <input type="checkbox" name="hobby" value="농구"/>농구
         	<input type="checkbox" name="hobby" value="배구"/>배구
         	<input type="checkbox" name="hobby" value="축구"/>축구
         	<input type="checkbox" name="hobby" value="탁구"/>탁구

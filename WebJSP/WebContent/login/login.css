@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+body{
+	margin:0px;	
+	background:rgb(236,236,238);
+}
+#main{
+	width:700px;
+	background-color:#ffffff;
+	margin:0 auto;/*위아래0 , 옆 자동*/
+}
+
+/*로고*/
+#top_logo{
+	height:50px;
+	text-align:center;
+	border-bottom:1px solid gray;	
+	padding:30px 0px;
+}
+/*로그인폼, 배너*/
+#login_form{
+	padding:60px 40px;
+	overflow:auto;
+}
+#login{
+	float:left;
+	width:300px;
+}
+#banner{
+	float:right;
+}
+.form_input{
+	width:97%;
+	
+}
+.form_com{
+	width:100%;	
+}
+.form{
+	margin:3px 0px;
+	height:40px;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	border-right:0px solid #ddd;
+	border-left:0px solid #ddd;
+}
+.sub{
+	background-color:rgb(78, 135, 239);
+	color:#ffffff;
+	font-size:1.2em;
+}
+#state{
+	margin:20px 0px;
+}
+#check{
+	margin:10px 0px;
+	text-align:center;
+}
+#bottom{
+	text-align:center;
+	margin:50px 0px;
+}
+a:link{/*링크 상태일때*/
+	text-decoration:none; 
+	color:gray;
+	font-size: 10px;
+	}
+a:visited{/*방문기록이 있을때*/
+	text-decoration:none;
+	color:gray;
+	font-size:10px;
+	}
