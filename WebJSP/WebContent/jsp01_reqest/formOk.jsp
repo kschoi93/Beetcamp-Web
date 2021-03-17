@@ -70,5 +70,3 @@ intro : <%=intro %>
 
 </body>
 </html>
-
-

@@ -39,7 +39,6 @@
         	<option value="대구">대구</option>
         	<option value="광주">광주</option>
         	</select>	<br/>
-        	
 		<input type="submit" value="전송"/>
 	</form>
 </body>

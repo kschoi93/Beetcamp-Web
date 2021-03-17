@@ -76,4 +76,4 @@
 	out.write("<img src='img/1.jpg' width='500px'/>");
 %>
 </body>
-</html>
+</html> 
