@@ -26,17 +26,9 @@
 </script>
 </head>
 <body>
-
+<%@ include file="jsp04_include/jspf_header.jspf" %>
 <h2>session.Id : <%=session.getId() %></h2>
-<% 
-	// session 로그인 여부 확인후 선택하여 표시한다.
-	if(session.getAttribute("logStatus")==null){ // 로그인 됨 : Y, 로그인 안됨 : null
-%>
-	<a href="<%=request.getContextPath()%>/login/login_form.html">로그인</a>
-<% } else if(session.getAttribute("logStatus").equals("Y")){ %>
-	<%= session.getAttribute("logName") %>
-	<a href="<%=request.getContextPath()%>/login/logout.jsp">로그아웃</a>
-<% } %>
+
 
 
 
@@ -65,6 +57,7 @@
 	out.write("<br/>result="+result);
 	out.write("<br/>"+a+"+"+b+"="+sum(a,b));
 
+	
 %>
 <br/> 
 <%= a+4 %>-

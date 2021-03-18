@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+   <!--  로그인 안된경우 로그인 페이지로 보내기 -->
+<%
+	String logStatus = (String)session.getAttribute("logStatus");
+	if(logStatus==null || !logStatus.equals("Y")){
+		response.sendRedirect(request.getContextPath()+"/login/login_form.html");
+	}
+%>
