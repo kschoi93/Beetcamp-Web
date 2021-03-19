@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="com.bitcamp.board.BoardDAO"%>
+<%@ page import="com.bitcamp.board.BoardVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,48 +25,70 @@
 		width:15%; 
 	}
 </style>
+<script>
+	$(function(){
+		$("#searchFrm").submit(function(){
+			if($("#searchWord").val()==""){
+				alert("검색어를 입력후 검색하세요..");
+				return false;
+			}
+			return true;
+		})
+	});
+</script>
 </head>
 <body>
 <%@ include file="../jsp04_include/jspf_header.jspf" %>
+<%
+	//총 레코드수
+	BoardDAO dao = new BoardDAO();
+	// 검색어 확인 
+	String searchKey = request.getParameter("searchKey");
+	String searchWord = request.getParameter("searchWord");
+	
+	System.out.println("searchKey -->"+ searchKey + ",  searchWord-->" + searchWord);
+
+	int totalRecord = dao.totalRecord(searchKey,searchWord); // 총 레코드수
+	int onePageRecord = 5; // 한페이지당 출력할 레코드 수
+	int onePageSize = 5;// 한번에 표시할 페이지수 
+	
+	//현재 페이지 구하기
+	String nowNumStr = request.getParameter("nowNum"); // null, page Number
+
+	int nowNum = 1;
+	if(nowNumStr !=null && !nowNumStr.equals("")){
+		//전송받은 페이지 번호가 있다
+		nowNum = Integer.parseInt(nowNumStr);
+	}else {
+		//전송받은 페이지 번호가 없다.
+		nowNum = 1;
+	}
+	
+	//총 페이지수 구하기
+	int totalPage = (int)Math.ceil((int)totalRecord / (double)onePageRecord);
+	
+	//레코드 선택 (게시글 목록 구하기)			현재페이지, 한페이지당 출력할 레코드수, 총 레코드 수, 총 페이지 수 , <--검색어 선택해오기-->
+	List<BoardVO> lst = dao.selectRecord(nowNum, onePageRecord, totalRecord, totalPage , searchKey, searchWord);
+	  
+%>
 <div class="container">
 	<h1>게시판목록</h1>
-	<div>총 레코드 수 : 3232, Page : 1/5Page</div>
+	<div>총 레코드 수 : <%=totalRecord %>, Pages : <%=nowNum %>/<%=totalPage %>Page</div>
 	<ul id="boardList">
 		<li>번호</li>
 		<li>제목</li>
 		<li>작성자</li>
 		<li>작성일</li>
 		<li>조회수</li>
-		
-		<li>100</li>
-		<li><a href="#">BMW 코리아가 오는 16일 오후 2시 6 말줄임 표시위해서 더 늘리겠어 노력이 보이나? 더써야되네</a></li>
-		<li>goguma</li>
-		<li>21-10-03 10:12</li>
-		<li>12</li>
-		
-		<li>98</li>
-		<li><a href="#">BMW 코리아가 오는 16일 오후 2시 6 더더더더더더더더더더더더더더더더더 써야 한 다 더더더더더더더더더더더더더</a></li>
-		<li>goguma</li>
-		<li>21-10-03 10:12</li>
-		<li>12</li>
-		
-		<li>90</li>
-		<li><a href="#">BMW 코리아가 오는 16일 오후 2시 6 말줄임 표시위해서 더 늘리겠어 노력이 보이나? 더더더더더</a></li>
-		<li>goguma</li>
-		<li>21-10-03 10:12</li>
-		<li>12</li>
-		
-		<li>87</li>
-		<li><a href="#">BMW 코리아가 오는 16일 오후 2시 6</a></li>
-		<li>goguma</li>
-		<li>21-10-03 10:12</li>
-		<li>12</li>
-		
-		<li>82</li>
-		<li><a href="#">BMW 코리아가 오는 16일 오후 2시 6</a></li>
-		<li>goguma</li>
-		<li>21-10-03 10:12</li>
-		<li>12</li>
+		<% for(int i=0; i<lst.size();i++){
+			BoardVO vo = lst.get(i);
+		%>
+			<li><%=vo.getNo() %></li>
+			<li><a href="<%=request.getContextPath()%>/board/boardView.jsp?no=<%=vo.getNo()%>&nowNum=<%=nowNum%><%if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);} %>"><%=vo.getSubject() %></a></li>
+			<li><%=vo.getUserid() %></li>
+			<li><%=vo.getWritedate() %></li>
+			<li><%=vo.getHit() %></li>
+		<% }%>
 	</ul>
 	<div>
 	<%
@@ -79,18 +103,48 @@
 	%>
 	</div>
 	<div>
+	<%
+	// 페이지 정하기
+	// ((현재 페이지-1) / 출력페이지수*출력페이지수)+1
+		int startPage = ((nowNum-1) / onePageSize*onePageSize)+1;
+		System.out.println("nowNum --> "+ (nowNum-1));
+		System.out.println("onePageSize --> "+onePageSize);
+		System.out.println("nowNum-1 / onpageSize*onepageSize -->"+ (nowNum-1) / onePageSize*onePageSize);
+		
+	%>
 		<ul class="breadcrumb pagination-md">
-			<li class="page-item"><a href="#" class="page-link">Prev</a></li>
-			<li class="page-item"><a href="#" class="page-link">1</a></li>
-			<li class="page-item"><a href="#" class="page-link">2</a></li>
-			<li class="page-item"><a href="#" class="page-link">3</a></li>
-			<li class="page-item active"><a href="#" class="page-link">4</a></li>
-			<li class="page-item"><a href="#" class="page-link">5</a></li>
-			<li class="page-item disabled"><a href="#" class="page-link">next</a></li>
+			<!-- 페이지 이동에 따른 변화 jsp -->
+			<% if(nowNum>1){ %>
+				<li class="page-item"><a href="boardList.jsp?nowNum=<%=nowNum-1 %><%if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);} %>" class="page-link">Prev</a></li>
+			<% }else {%>
+				<li class="page-item disabled"><a href="#" class="page-link">Prev</a></li>
+			<% } 
+			
+			
+				//페이지 번호
+				for(int p=startPage; p<startPage+onePageSize; p++){
+					if(p<=totalPage){
+							if(nowNum==p){//현재 보고있는 페이지
+					%>
+						<li class="page-item active"><a href="boardList.jsp?nowNum=<%=p %><%if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);} %>" class="page-link"><%=p %></a></li>			
+					<% 		}else{
+					%>
+						<li class="page-item"><a href="boardList.jsp?nowNum=<%=p %><%if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);} %>" class="page-link"><%=p %></a></li>	
+						<%	}
+					}/// totalPage
+				}
+				
+				if(nowNum==totalPage){//마지막 페이지
+				%>
+					<li class="page-item disabled"><a href="#" class="page-link">next</a></li>
+			<%} else { %>
+					<li class="page-item"><a href="boardList.jsp?nowNum=<%=nowNum+1 %><%if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);} %>" class="page-link">next</a></li>
+			
+			<%}  %>
 		</ul>
 	</div>
 	<div>
-		<form method="post" action="<%=request.getContextPath()%>/board/boardList.jsp" >
+		<form id="searchFrm" method="get" action="<%=request.getContextPath()%>/board/boardList.jsp" >
 			<select name="searchKey">
 				<option value="subject">제목</option>
 				<option value="userid">작성자</option>

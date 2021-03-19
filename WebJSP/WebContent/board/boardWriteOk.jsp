@@ -30,7 +30,7 @@
 		%>
 		<script>
 			alert("글등록이 실패하였습니다.");
-			history.back(); // history(-1)
+			history.back(); // history.해(-1)
 			
 		</script>
 		<%
