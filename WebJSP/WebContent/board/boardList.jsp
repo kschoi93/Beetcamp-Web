@@ -46,7 +46,6 @@
 	String searchKey = request.getParameter("searchKey");
 	String searchWord = request.getParameter("searchWord");
 	
-	System.out.println("searchKey -->"+ searchKey + ",  searchWord-->" + searchWord);
 
 	int totalRecord = dao.totalRecord(searchKey,searchWord); // 총 레코드수
 	int onePageRecord = 5; // 한페이지당 출력할 레코드 수
@@ -107,9 +106,6 @@
 	// 페이지 정하기
 	// ((현재 페이지-1) / 출력페이지수*출력페이지수)+1
 		int startPage = ((nowNum-1) / onePageSize*onePageSize)+1;
-		System.out.println("nowNum --> "+ (nowNum-1));
-		System.out.println("onePageSize --> "+onePageSize);
-		System.out.println("nowNum-1 / onpageSize*onepageSize -->"+ (nowNum-1) / onePageSize*onePageSize);
 		
 	%>
 		<ul class="breadcrumb pagination-md">

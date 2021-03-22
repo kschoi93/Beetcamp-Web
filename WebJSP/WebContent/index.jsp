@@ -6,7 +6,7 @@
 <%!
 	//선언부
 	//메소드 또는 변수 선언 : 메소드는 선언부에 작성해야 한다.
-		
+		 
 	public int sum(int a,int b){
 		int hap = a+b;
 		return hap;
@@ -44,6 +44,23 @@
 
 <!-- 오늘날짜 구하기 -->
 <h1>오늘은 <%=year %>년 <%=month %>월 <%=day %>일 입니다.</h1> 
+<hr/>
+<h1>jstl태그</h1>
+<!-- 
+	https://tomcat.apache.org/taglibs/standard/
+	jakarta-taglibs-standard-1.1.2.zip을 다운로드 후
+	
+	현재 프로젝트의 WEB-INF/lib에
+		jstl.jar, standard.jar를 복사한다.
+ -->
+ <ol>
+ 	<li><a href="jstl/jstl01_setTag.jsp">set Tag : 변수의 선언 및 삭제</a>
+ 	<li><a href="jstl/jstl02_ifTag.jsp?name=이순신&age=28">if Tag : 조건문</a>
+ 	<li><a href="jstl/jstl03_forEachTag.jsp">forEach Tag : 반복문</a>
+ 	<li><a href="jstl/jstl04_forTokensTag.jsp">forTokens Tag : 문자열 조각내기</a>
+	<li><a href="jstl/jstl05_urlTag.jsp">url Tag</a>
+ </ol>
+ <hr/>
 <%	// 스크립트릿, JSP를 HTML에 추가해서 작성한다
 	/*
 		1. JSP -> suvlet -> client
@@ -56,9 +73,8 @@
 	int result= sum(10,100);
 	out.write("<br/>result="+result);
 	out.write("<br/>"+a+"+"+b+"="+sum(a,b));
-
-	
 %>
+
 <br/> 
 <%= a+4 %>-
 <%=b %>=
