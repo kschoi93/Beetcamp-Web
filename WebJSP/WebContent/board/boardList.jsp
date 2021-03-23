@@ -45,7 +45,7 @@
 	// 검색어 확인 
 	String searchKey = request.getParameter("searchKey");
 	String searchWord = request.getParameter("searchWord");
-	
+	System.out.println(searchKey +", "+ searchWord);
 
 	int totalRecord = dao.totalRecord(searchKey,searchWord); // 총 레코드수
 	int onePageRecord = 5; // 한페이지당 출력할 레코드 수

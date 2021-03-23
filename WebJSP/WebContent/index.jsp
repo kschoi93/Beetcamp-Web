@@ -59,6 +59,9 @@
  	<li><a href="jstl/jstl03_forEachTag.jsp">forEach Tag : 반복문</a>
  	<li><a href="jstl/jstl04_forTokensTag.jsp">forTokens Tag : 문자열 조각내기</a>
 	<li><a href="jstl/jstl05_urlTag.jsp">url Tag</a>
+	<li><a href="jstl/jstl06_chooseTag.jsp?username=홍길동&age=25">chooose Tag : if~else, switch</a>
+	<li><a href="jstl/jstl07_redirectTag.jsp">redirect Tag</a>
+	
  </ol>
  <hr/>
 <%	// 스크립트릿, JSP를 HTML에 추가해서 작성한다
