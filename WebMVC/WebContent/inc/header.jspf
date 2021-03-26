@@ -21,10 +21,18 @@
 </head>
 <body>
 	<ul id="menu">
-		<li><a href="index.do">홈페이지</a></li>
-		<li><a href="#">로그인</a></li>
-		<li><a href="<%=request.getContextPath() %>/member/memberForm.do">회원가입</a></li>
+		<li><a href="<%=request.getContextPath() %>/index.do">홈페이지</a></li>
+		
+		<c:if test="${userid==null || userid=='' }">
+			<li><a href="<%=request.getContextPath()%>/member/login.do">로그인</a></li>
+			<li><a href="<%=request.getContextPath() %>/member/memberForm.do">회원가입</a></li>
+		</c:if>
+		
+		<c:if test="${userid!=null && userid!='' }">
+			<li><a href="<%=request.getContextPath()%>/member/logout.do">로그아웃</a></li>
+			<li><a href="<%=request.getContextPath() %>/member/memberEdit.do">회원정보수정</a></li>
+		</c:if>
+		
 		<li><a href="#">게시판</a></li>
 		<li><a href="#">자료실</a></li>
 	</ul>
-	<%System.out.println("header.jspf 실행됨"); %>

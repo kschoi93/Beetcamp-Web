@@ -12,7 +12,7 @@ public class IdCheckCommand implements CommandService{
 
 	@Override
 	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("idCheck() 실행됨");
+		//System.out.println("idCheck() 실행됨");
 		//DB조회 : id가 있는지 없는지 결과를 가지고 뷰로 간다
 		String userid= req.getParameter("userid");
 		

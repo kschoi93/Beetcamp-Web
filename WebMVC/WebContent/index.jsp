@@ -4,7 +4,6 @@
 	img{width:70%}
 </style>
 <div class="container">
-	<img src="img/1.jpg"/>
+	<img src="<%=request.getContextPath()%>/img/1.jpg"/>
 	
 </div>
-<%System.out.println("index.jsp 실행됨"); %>

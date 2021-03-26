@@ -11,4 +11,3 @@
 </footer>
 </body>
 </html>
-<%System.out.println("footer.jspf 실행됨"); %>

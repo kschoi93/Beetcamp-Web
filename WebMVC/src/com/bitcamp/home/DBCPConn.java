@@ -16,7 +16,7 @@ public class DBCPConn {
 	
 	//db연결
 	public void getConn() {
-		System.out.println("db() 실행됨");
+		//System.out.println("db() 실행됨");
 		try {
 			Context ctx = new InitialContext();
 			Context envCtx = (Context)ctx.lookup("java:comp/env");

@@ -1,17 +1,23 @@
-package com.bitcamp.home;
+package com.bitcamp.home.member;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class IndexCommand implements CommandService{
+import com.bitcamp.home.CommandService;
+
+public class LogoutCommand implements CommandService {
 
 	@Override
 	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		//System.out.println("IndexCommand() 실행됨");
-		return "index.jsp";
+		//로그아웃
+		HttpSession ses = req.getSession();
+		//세션지우기
+		ses.invalidate();
+		return "/index.do";
 	}
 
 }

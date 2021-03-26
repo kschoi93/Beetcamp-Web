@@ -5,7 +5,7 @@
 	#memId li{float:left; height:50px; border-bottom:1px solid #ddd; padding:10px 0;}
 	#memId li:nth-child(2n){width:80%}
 	#memId li:nth-child(2n+1){width:20%}
-	#memId li:last-child{width:100$; text-align:center;}
+	#memId li:last-child{width:100%; text-align:center;}
 </style>
 <script>
 	$(function(){
@@ -79,7 +79,7 @@
 </script>
 <div class="container">
 	<h1>회원가입하기</h1>
-	<form method="post" id="memId" action="member/memberFormOk.do">
+	<form method="post" id="memId" action="<%=request.getContextPath() %>/member/memberFormOk.do">
 		<ul id="regForm">
 			<li>아이디</li>
 			<li><input type="text" name="userid" id="userid" maxlength="20"/>
@@ -96,7 +96,7 @@
 			<li>
 				<select name="tel1" id="tel1">
 					<option value="010">010</option>
-					<option value="01">02</option>
+					<option value="02">02</option>
 					<option value="031">031</option>
 					<option value="041">041</option>
 				</select> - 
@@ -138,4 +138,3 @@
 		</ul>
 	</form>
 </div>
-<%System.out.println("memberForm.jsp 실행됨"); %>

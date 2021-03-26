@@ -27,7 +27,7 @@ public class ControllerAction extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("init() 실행됨");
+		//System.out.println("init() 실행됨");
 		//properties파일명을 web.xml에서 가져오기
 		String propertiesFilename = config.getInitParameter("proConfig");
 		
@@ -63,7 +63,7 @@ public class ControllerAction extends HttpServlet {
 
 	// get : a tag, form tag 방식으로 접속 가능
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet() 실행됨");
+		//System.out.println("doGet() 실행됨");
 		// 접속자의 url 주소를 알아낸다.				 01234567
 		String uri = request.getRequestURI(); // /webMVC/index.do
 		String ctx = request.getContextPath(); // /webMVC =7
@@ -71,13 +71,13 @@ public class ControllerAction extends HttpServlet {
 		//System.out.println("ctx=>"+ctx);
 		
 		String urlMapping = uri.substring(ctx.length()); // /index.do
-		System.out.println("urlMapping Test-->"+urlMapping);
+		//System.out.println("urlMapping Test-->"+urlMapping);
 		
 		
 		CommandService command = map.get(urlMapping);
-		System.out.println("command Test-->"+command);
+		//System.out.println("command Test-->"+command);
 		String viewFilename = command.processStart(request, response);
-		System.out.println("viewFilename Test-->"+viewFilename);
+		//System.out.println("viewFilename Test-->"+viewFilename);
 		// dispatcher : 해당되는 경로의 파일로 이동하기(전환)
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewFilename);
 		dispatcher.forward(request, response);
@@ -86,7 +86,7 @@ public class ControllerAction extends HttpServlet {
 	
 	// post : form tag 방식으로 접속 가능       ,     doGet(request,response) : form으로 들어온 것을 doget으로 보내서 작업을 처리하겠다.
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doPost() 실행됨");
+		//System.out.println("doPost() 실행됨");
 		doGet(request,response);
 		
 	}

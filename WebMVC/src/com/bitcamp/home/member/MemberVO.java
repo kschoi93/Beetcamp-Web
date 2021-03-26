@@ -19,6 +19,7 @@ public class MemberVO {
 	private String addr;
 	private String detailaddr;
 	
+	private String interestStr="";
 	private String interest[];
 	
 	private String regdate;
@@ -124,6 +125,22 @@ public class MemberVO {
 	}
 	public void setInterest(String[] interest) {
 		this.interest = interest;
+		//배열의 값을 문자열로
+		for(String i : interest) {
+			interestStr += i+"/";
+		}
+	}
+	
+	public String getInterestStr() {
+
+		return interestStr;
+	}
+	//문자열을 배열로
+	public void setInterestStr(String interestStr) {
+		this.interestStr = interestStr;
+		//관심분야 배열로 만들어 interest에 추가
+		interest = interestStr.split("/");
+		
 	}
 	public String getRegdate() {
 		return regdate;
