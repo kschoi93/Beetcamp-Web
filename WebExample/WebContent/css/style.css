@@ -1,0 +1,6 @@
+@charset "UTF-8";
+body{width:100%}
+section{width:70%; margin:0 auto;}
+header>img{width:500px;}
+header{display:flex;}
+div{flex-direction: row-reverse;}
