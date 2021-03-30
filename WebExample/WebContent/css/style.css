@@ -1,6 +1,12 @@
 @charset "UTF-8";
-body{width:100%}
+/* 공통사항 */
+body{margin:0; padding:0;}
+
+/* header 시작 */
+header>img{width:100%; height:300px;}
+
+
+/* section 시작 */
 section{width:70%; margin:0 auto;}
-header>img{width:500px;}
-header{display:flex;}
-div{flex-direction: row-reverse;}
+
+/* footer 시작 */
