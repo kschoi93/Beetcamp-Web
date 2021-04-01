@@ -136,8 +136,25 @@ public class BoardDAO extends DBCPConn implements BoardDAOService {
 
 	@Override
 	public int boardUpdate(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result =0;
+		try {
+			getConn();
+			sql="update board set subject=?, content=? where no=? and userid=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getSubject());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setInt(3, vo.getNo());
+			pstmt.setString(4, vo.getUserid());
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			System.out.println("게시판 업데이트 오류......");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		return result;
 	}
 
 	@Override
@@ -185,6 +202,26 @@ public class BoardDAO extends DBCPConn implements BoardDAOService {
 			getClose();
 		}
 		return list;
+	}
+	
+	public String getUserid(int no) {
+		String userid ="";
+		try {
+			getConn();
+			sql = "select userid from board where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				userid =rs.getString(1);
+			}
+		}catch(Exception e) {
+			System.out.println("아이디 확인 에러.................");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		return userid;
 	}
 
 }
