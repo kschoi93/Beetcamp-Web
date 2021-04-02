@@ -41,7 +41,7 @@ a:hover,a:visited,a:link,a:active{text-decoration:none;}
 
 
 /*페이지*/
-#page{width:50%;text-align:center;overflow:auto; margin: 0 auto;}
+#page{width:70%;text-align:center;overflow:auto; margin: 0 auto;}
 #page>li{
 	float:left; width:40px; height:40px; line-height:40px; text-align:center; border:1px solid #ddd;
 	margin:5px 15px; 
