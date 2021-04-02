@@ -15,7 +15,7 @@
 		background-color:pink; overflow:auto; background-color:pink;
 	}
 	#menu>li{
-		float:left; height:80px; line-height:80px; width:20%;text-align:center;
+		float:left; height:80px; line-height:80px; width:15%;text-align:center;
 	}
 </style>
 </head>
@@ -35,4 +35,5 @@
 		
 		<li><a href="<%=request.getContextPath()%>/board/list.do">게시판</a></li>
 		<li><a href="<%=request.getContextPath()%>/data/dataList.do">자료실</a></li>
+		<li><a href="<%=request.getContextPath()%>/data/multiUploadForm.do">다중업로드</a></li>
 	</ul>

@@ -67,9 +67,38 @@ public class DataDAO extends DBCPConn implements DataDAOImpl{
 	}
 
 	@Override
-	public int dataUpdate(DataVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int dataUpdate(DataVO vo, List<String> newFile) {
+		int result=0;
+		try {
+			getConn();
+			sql="update data set title=?, content=?, filename1=?, filename2=? "
+					+ " where no=? and userid=?";
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, vo.getTitle());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setString(3, newFile.get(0));
+			
+			
+			if(newFile.size()==2) {
+				pstmt.setString(4, newFile.get(1));
+			} else {
+				pstmt.setString(4, null);
+			}
+			pstmt.setInt(5, vo.getNo());
+			pstmt.setString(6, vo.getUserid());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			System.out.println("업데이트 에러..........");
+			e.printStackTrace();
+		}finally{
+			getClose();
+		}
+		
+		return result;
 	}
 
 	@Override
@@ -202,5 +231,31 @@ public class DataDAO extends DBCPConn implements DataDAOImpl{
 			getClose();
 		}
 	}
-
+	//레코드의 파일명 선택
+	public List<String> getSelectFile(int no){
+		List<String> fileList = new ArrayList<String>();
+		
+		try {
+			getConn();
+			sql="select filename1, filename2 from data where no=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				fileList.add(rs.getString(1));
+				if(rs.getString(2)!=null) {
+					fileList.add(rs.getString(2));
+				}
+			}
+		}catch(Exception e) {
+			System.out.println("파일 리스트 불러오기 실패 .... ");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		return fileList;
+	}
 }

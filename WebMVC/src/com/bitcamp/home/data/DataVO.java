@@ -11,11 +11,12 @@ public class DataVO {
 	private String filename2;
 	private String filename[] = new String[2];
 	
+	private String delfile[];
+	
 	private int hit;
 	private int downCount;
 	private String writedate;
 	private String ip;
-	
 	
 	
 	
@@ -69,6 +70,14 @@ public class DataVO {
 		
 		this.filename = filename;
 	}
+	public String[] getDelfile() {
+		return delfile;
+	}
+	public void setDelfile(String[] delfile) {
+		this.delfile = delfile;
+	}
+	
+	
 	
 	
 	
