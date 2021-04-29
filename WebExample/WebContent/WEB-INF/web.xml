@@ -32,7 +32,7 @@
 		<servlet-class>com.example.home.ControllerAction</servlet-class>
 		<init-param>
 			<param-name>proConfig</param-name>
-			<param-value>C:\Users\kyung\git\Portfolio_cks\WebExample\WebContent\WEB-INF\prop\urlMapping.properties</param-value>
+			<param-value>C:\Users\kyung\git\HTMLCSS\WebExample\WebContent\WEB-INF\prop\urlMapping.properties</param-value>
 		</init-param>
 	</servlet>  
 	<servlet-mapping>

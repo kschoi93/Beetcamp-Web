@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=dvice-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+<style>
+	#receiveMsg{
+		background-color:pink;
+	}
+</style>
+<script>
+	var socket;
+	$( () => {
+		//1. 서버에 접속하기
+		socket = io.connect(); //connection이벤트가 발생함
+		
+		//2. 클라이언트가 서버로 문자 보내는 이벤트 발생
+		//			서버에서 받은 이벤트, 서버로 보내는 내용
+		socket.emit('hello','안녕하세요....고구마입니다');
+		
+		//3. 서버에서 echo 이벤트가 발생하면 실행할 함수
+		socket.on('echo', function(data){
+			$('#receiveMsg').append(data+"<br/>");
+		});
+		
+		//4. 폼에 보낼문자를 입력 후 서버로 전송하는 이벤트
+		$('#send').click( () => {
+			sendMessage();
+		});
+		
+		$('#sendMsg').keyup(function(event){
+			if(event.keyCode==13){
+				sendMessage();
+			}
+		});
+		
+		// 서버로 문자 보내는 함수
+		function sendMessage(){
+			var msg = $("#sendMsg").val();
+			socket.emit('hello',msg);
+			$('#sendMsg').val('');
+			$('#sendMsg').focus();
+		}
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<h1>Echo Chatt</h1>
+	Message : <input type="text" name="sendMsg" id="sendMsg"/>
+			  <input type="button" id="send" value="보내기"/>
+    <hr/>
+	<div id="receiveMsg"></div>			  
+</div>
+</body>
+</html>
